@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,17 +81,35 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_perfil) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            Toast.makeText(this,"pagina do perfil",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_pets) {
+            Toast.makeText(this,"pagina dos pets",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_favoritos) {
+            Toast.makeText(this,"pagina dos favoritos",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_chat) {
+            Toast.makeText(this,"Chat",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.atalhos_cadastrar) {
+            Toast.makeText(this,"cadastrar",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.atalhos_adotar) {
+            Toast.makeText(this,"adotar",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.atalhos_ajudar) {
+            Toast.makeText(this,"ajudar",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.atalhos_apadrinhar) {
+            Toast.makeText(this,"apadrinhar",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_dicas) {
+            Toast.makeText(this,"dicas",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_eventos) {
+            Toast.makeText(this,"eventos",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_legislacao) {
+            Toast.makeText(this,"legislação",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_termo) {
+            Toast.makeText(this,"termos de adoção",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_historias) {
+            Toast.makeText(this,"histórias de adoção",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_privacidade) {
+            Toast.makeText(this,"privacidade",Toast.LENGTH_SHORT).show();
 
         }
 

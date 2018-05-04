@@ -5,33 +5,69 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_perfil"
+            android:title="Meu perfil" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_pets"
+            android:title="Meus pets" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_favoritos"
+            android:title="Favoritos" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_chat"
+            android:title="Chat" />
     </group>
 
-    <item android:title="Communicate">
+    <item
+        android:title="Atalhos"
+        android:icon="@drawable/ic_menu_share"
+        android:background="#fee29b"
+        >
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/atalhos_cadastrar"
+                android:title="Cadastrar um pet" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/atalhos_adotar"
+                android:title="Adotar um pet" />
+            <item
+                android:id="@+id/atalhos_ajudar"
+                android:title="Ajudar um pet" />
+            <item
+                android:id="@+id/atalhos_apadrinhar"
+                android:title="Apadrinhar um pet" />
+        </menu>
+    </item>
+    <item android:title="Informações"
+        android:icon="@drawable/ic_menu_share"
+        android:background="#cfe9e5"
+        >
+        <menu>
+            <item
+                android:id="@+id/nav_dicas"
+                android:title="Dicas" />
+            <item
+                android:id="@+id/nav_eventos"
+                android:title="Eventos" />
+            <item
+                android:id="@+id/nav_legislacao"
+                android:title="Legislação" />
+            <item
+                android:id="@+id/nav_termo"
+                android:title="Termo de adoção" />
+            <item
+                android:id="@+id/nav_historias"
+                android:title="Historias de adoção" />
+        </menu>
+    </item>
+    <item android:title="Configurações"
+        android:icon="@drawable/ic_menu_share"
+        android:background="#e6e7e8"
+        >
+        <menu>
+            <item
+                android:id="@+id/nav_privacidade"
+                android:title="Privacidade" />
         </menu>
     </item>
 

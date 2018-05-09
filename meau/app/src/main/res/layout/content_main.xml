@@ -8,105 +8,10 @@
     tools:context="com.jadilindo.meau.meau.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
+        android:id="@+id/ContentMainFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.jadilindo.meau.meau.Home">
+        android:layout_height="match_parent"></FrameLayout>
 
-
-        <TextView
-            android:id="@+id/ola"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="72dp"
-            android:text="Olá!"
-            android:fontFamily="@font/courgette_regular"
-            android:textColor="#FFD358"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="56dp"
-            android:layout_marginBottom="30dp"
-            android:paddingBottom="0dp"
-            />
-
-        <TextView
-            android:id= "@+id/bemVindo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Bem vindo ao Meau!\nAqui você pode adotar, doar e ajudar\ncães e gatos com facilidade.\nQual o seu interesse?"
-            android:layout_centerHorizontal="true"
-            android:textColor="#757575"
-            android:layout_below="@+id/ola"
-            android:layout_marginRight="48dp"
-            android:textSize="14dp"
-            android:gravity="center"
-            />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/bemVindo"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            >
-
-            <Button
-                android:id="@+id/buttonAdotar"
-                android:layout_width="232dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/bemVindo"
-                android:layout_centerHorizontal="true"
-                android:text="Adotar"
-                android:layout_marginBottom="6dp"
-                android:background="#FFD358"
-                android:textColor="#434343"/>
-
-            <Button
-                android:id="@+id/buttonAjudar"
-                android:layout_width="232dp"
-                android:layout_height="40dp"
-                android:text="Ajudar"
-                android:layout_marginBottom="6dp"
-                android:background="#FFD358"
-                android:textColor="#434343"/>
-
-            <Button
-                android:id="@+id/buttonCadastrar"
-                android:layout_width="232dp"
-                android:layout_height="40dp"
-                android:text="Cadastrar animal"
-                android:layout_marginBottom="12dp"
-                android:background="#FFD358"
-                android:textColor="#434343"/>
-
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="login"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:layout_below="@id/LinearLayoutButton1"
-            android:textColor="#88c9bf"
-            android:textSize="16dp"
-            android:layout_marginBottom="12dp"
-            android:onClick="goToRegister"/>
-
-        <ImageView
-            android:layout_width="122dp"
-            android:layout_height="44dp"
-            android:src="@drawable/meau_marca_2"
-            android:layout_below="@id/login"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"/>
-
-    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

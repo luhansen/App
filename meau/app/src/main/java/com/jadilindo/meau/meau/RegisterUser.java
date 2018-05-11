@@ -1,6 +1,7 @@
 package com.jadilindo.meau.meau;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,11 +10,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterUser extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
+    boolean logged_in = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +73,26 @@ public class RegisterUser extends AppCompatActivity {
 
             //Saving the User
             databaseUsers.child(id).setValue(user);
-
-            this.goToLoginActivity();
+            mAuth = FirebaseAuth.getInstance();
+            mAuth.createUserWithEmailAndPassword(user_email, user_password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI();
+                            }
+                        }
+                    });
         } else {
             //if the value is not given displaying a toast
             Toast.makeText(this, "Por favor coloque todos os campos", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void updateUI() {
+        goToMainActivity();
     }
 
     public void goToMainActivity (){

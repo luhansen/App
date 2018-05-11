@@ -17,6 +17,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import fragments.AtalhoAdotarFragment;
 import fragments.AtalhoAjudarFragment;
 import fragments.AtalhoApadrinharFragment;
@@ -35,9 +38,11 @@ import fragments.TermoFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private FirebaseAuth mAuth = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -64,6 +69,17 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new MainFragment()).commit();
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null) {
+            Toast.makeText(this, "Usuário " + currentUser.getEmail() + " logado", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -155,7 +171,7 @@ public class MainActivity extends AppCompatActivity
 
     }
     public void goToRegister (View view){
-        Intent intent = new Intent (this, RegisterUser.class);
+        Intent intent = new Intent (this, LoginActivity.class);
         startActivity(intent);
     }
 }

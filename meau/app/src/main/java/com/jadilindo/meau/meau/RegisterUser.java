@@ -83,12 +83,19 @@ public class RegisterUser extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI();
                             }
+                            else{
+                                showError("Por favor coloque todos os campos");
+                            }
                         }
                     });
         } else {
             //if the value is not given displaying a toast
             Toast.makeText(this, "Por favor coloque todos os campos", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void showError(String string) {
+        Toast.makeText(this, string, Toast.LENGTH_LONG).show();
     }
 
     private void updateUI() {

@@ -30,6 +30,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -200,11 +201,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             if (task.isSuccessful()) {
                                 goToMainActivity();
                             }else{
+                                showError("Usuário ou senha incorretos");
                                 Log.w("asdf", "createUserWithEmail:failure", task.getException());
                             }
                         }
                     });
         }
+    }
+
+    private void showError(String string) {
+        Toast.makeText(this, string, Toast.LENGTH_LONG).show();
     }
 
     private void goToMainActivity() {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/ops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="72dp"
+            android:text="Ops!"
+            android:fontFamily="@font/courgette_regular"
+            android:textColor="#FFD358"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="30dp"
+            android:paddingBottom="0dp"
+            />
+
+    <TextView
+        android:id="@+id/textNotLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@id/ops"
+        android:text="ops necessario estar cadastrado, por favor faca o login"/>
+
+    <TextView
+        android:id="@id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@id/textNotLogin"
+        android:textColor="#88c9bf"
+        android:textSize="16dp"
+        android:layout_marginBottom="12dp"
+        android:onClick="goToRegister"/>
+    </RelativeLayout>
+</FrameLayout>

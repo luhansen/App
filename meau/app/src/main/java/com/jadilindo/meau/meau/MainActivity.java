@@ -31,6 +31,7 @@ import fragments.FavoritosFragment;
 import fragments.HistoriasFragment;
 import fragments.LegislacaoFragment;
 import fragments.MainFragment;
+import fragments.NotLoginFragment;
 import fragments.PerfilFragment;
 import fragments.PetsFragment;
 import fragments.PrivacidadeFragment;
@@ -120,51 +121,101 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         int id = item.getItemId();
 
-        if (id == R.id.nav_perfil) {
-            // Handle the camera action
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new PerfilFragment()).commit();
-            Toast.makeText(this,"pagina do perfil",Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_pets) {
-            Toast.makeText(this,"pagina dos pets",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new PetsFragment()).commit();
-        } else if (id == R.id.nav_favoritos) {
-            Toast.makeText(this,"pagina dos favoritos",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new FavoritosFragment()).commit();
-        } else if (id == R.id.nav_chat) {
-            Toast.makeText(this,"Chat",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new ChatFragment()).commit();
-        } else if (id == R.id.atalhos_cadastrar) {
-            Toast.makeText(this,"cadastrar",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoCadastrarFragment()).commit();
-        } else if (id == R.id.atalhos_adotar) {
-            Toast.makeText(this,"adotar",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoAdotarFragment()).commit();
-        } else if (id == R.id.atalhos_ajudar) {
-            Toast.makeText(this,"ajudar",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoAjudarFragment()).commit();
-        } else if (id == R.id.atalhos_apadrinhar) {
-            Toast.makeText(this,"apadrinhar",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoApadrinharFragment()).commit();
-        } else if (id == R.id.nav_dicas) {
-            Toast.makeText(this,"dicas",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new DicasFragment()).commit();
-        } else if (id == R.id.nav_eventos) {
-            Toast.makeText(this,"eventos",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new EventosFragment()).commit();
-        } else if (id == R.id.nav_legislacao) {
-            Toast.makeText(this,"legislação",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new LegislacaoFragment()).commit();
-        } else if (id == R.id.nav_termo) {
-            Toast.makeText(this,"termos de adoção",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new TermoFragment()).commit();
-        } else if (id == R.id.nav_historias) {
-            Toast.makeText(this,"histórias de adoção",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new HistoriasFragment()).commit();
-        } else if (id == R.id.nav_privacidade) {
-            Toast.makeText(this,"privacidade",Toast.LENGTH_SHORT).show();
-            fm.beginTransaction().replace(R.id.ContentMainFrame, new PrivacidadeFragment()).commit();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null) {
+
         }
 
+        if (id == R.id.nav_perfil) {
+            // Handle the camera action
+            Toast.makeText(this,"pagina do perfil",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new PerfilFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_pets) {
+            Toast.makeText(this,"pagina dos pets",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new PetsFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_favoritos) {
+            Toast.makeText(this,"pagina dos favoritos",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new FavoritosFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_chat) {
+            Toast.makeText(this,"Chat",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new ChatFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.atalhos_cadastrar) {
+            Toast.makeText(this,"cadastrar",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoCadastrarFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.atalhos_adotar) {
+            Toast.makeText(this,"adotar",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoAdotarFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.atalhos_ajudar) {
+            Toast.makeText(this,"ajudar",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoAjudarFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.atalhos_apadrinhar) {
+            Toast.makeText(this,"apadrinhar",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoApadrinharFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_dicas) {
+            Toast.makeText(this,"dicas",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new DicasFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_eventos) {
+            Toast.makeText(this,"eventos",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new EventosFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_legislacao) {
+            Toast.makeText(this,"legislação",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new LegislacaoFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_termo) {
+            Toast.makeText(this,"termos de adoção",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new TermoFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_historias) {
+            Toast.makeText(this,"histórias de adoção",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new HistoriasFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        } else if (id == R.id.nav_privacidade) {
+            Toast.makeText(this,"privacidade",Toast.LENGTH_SHORT).show();
+            if(currentUser != null) {
+                fm.beginTransaction().replace(R.id.ContentMainFrame, new PrivacidadeFragment()).addToBackStack( "tag" ).commit();
+            }
+
+        }
+
+        if (currentUser == null){
+            fm.beginTransaction().replace(R.id.ContentMainFrame, new NotLoginFragment()).addToBackStack( "tag" ).commit();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

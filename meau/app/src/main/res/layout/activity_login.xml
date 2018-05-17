@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -30,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="64dp">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -61,6 +63,7 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
+                    android:textColor="#434343"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
@@ -70,10 +73,27 @@
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:background="#88c9bf"
+                android:textColor="#434343"
+                android:layout_marginTop="52dp"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="72dp">
+
+                <Button
+                    android:id="@+id/email_sign_in_google_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/SignInGoogle"
+                    android:textStyle="bold"
+                    android:background="#f15f5c"
+                    android:textColor="#f7f7f7"/>
+            </LinearLayout>
             <TextView
                 android:id="@+id/login"
                 android:layout_width="wrap_content"
@@ -82,7 +102,7 @@
                 android:gravity="center"
                 android:onClick="goToRegisterUserActivity"
                 android:text="@string/register"
-                android:textColor="#88c9bf"
+                android:textColor="#434343"
                 android:textSize="16dp"
                 tools:ignore="ObsoleteLayoutParam" />
 

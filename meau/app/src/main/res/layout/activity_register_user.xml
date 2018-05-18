@@ -28,11 +28,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="As informações preenchidas serão divulgadas apenas para a pessoa com a qual você realizar o processo de adoção e/ou apadrinhamento, após a formalização do processo."
+                android:text="@string/RegisterInfo"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:background="@drawable/rounded_corner"
-                android:textColor="#434343"
+                android:textColor="@color/TextColorGreenBack"
                 android:padding="8dp"
                 android:layout_margin="28dp"/>
 
@@ -51,8 +51,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="INFORMAÇÕES PESSOAIS"
-                        android:textColor="#76adad"/>
+                        android:text="@string/RegisterInfoPessoais"
+                        android:textColor="@color/TextColorGreenInfo"/>
                     <EditText
                         android:id="@+id/name"
                         android:layout_width="match_parent"
@@ -97,8 +97,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="INFORMAÇÕES DE PERFIL"
-                        android:textColor="#76adad"/>
+                        android:text="@string/RegisterInfoPerfil"
+                        android:textColor="@color/TextColorGreenInfo"/>
 
                     <EditText
                         android:id="@+id/user_name"
@@ -140,9 +140,9 @@
                     android:text="@string/cadastar"
                     tools:ignore="ButtonStyle"
                     android:onClick="addUser"
-                    android:textColor="#434343"
+                    android:textColor="@color/TextColorGreenBack"
                     android:textStyle="bold"
-                    android:background="#88c9bf"/>
+                    android:background="@color/BackColorGreenButton"/>
 
 
             </LinearLayout>

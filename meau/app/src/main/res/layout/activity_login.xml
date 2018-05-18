@@ -75,8 +75,8 @@
                 android:layout_height="40dp"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
-                android:background="#88c9bf"
-                android:textColor="#434343"
+                android:background="@color/BackColorGreenButton"
+                android:textColor="@color/TextColorGreenBack"
                 android:layout_marginTop="52dp"/>
 
             <LinearLayout
@@ -93,8 +93,8 @@
                     android:layout_height="40dp"
                     android:text="@string/SignInFacebook"
                     android:textStyle="bold"
-                    android:background="#194f7c"
-                    android:textColor="#f7f7f7"/>
+                    android:background="@color/BackColorBlueButton"
+                    android:textColor="@color/TextColorRedBlueButton"/>
 
                 <Button
                     android:id="@+id/email_sign_in_google_button"
@@ -103,8 +103,8 @@
                     android:layout_height="40dp"
                     android:text="@string/SignInGoogle"
                     android:textStyle="bold"
-                    android:background="#f15f5c"
-                    android:textColor="#f7f7f7"/>
+                    android:background="@color/BackColorRedButton"
+                    android:textColor="@color/TextColorRedBlueButton"/>
             </LinearLayout>
             <TextView
                 android:id="@+id/login"
@@ -114,7 +114,7 @@
                 android:gravity="center"
                 android:onClick="goToRegisterUserActivity"
                 android:text="@string/cadastar"
-                android:textColor="#76adad"
+                android:textColor="@color/TextColorFazerCadastro"
                 android:textSize="16dp"
                 tools:ignore="ObsoleteLayoutParam" />
 

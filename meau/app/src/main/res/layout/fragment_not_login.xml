@@ -10,9 +10,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="72dp"
-            android:text="Ops!"
+            android:text="@string/Ops"
             android:fontFamily="@font/courgette_regular"
-            android:textColor="#FFD358"
+            android:textColor="@color/TextColorYellowTitle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="56dp"
             android:layout_marginBottom="30dp"
@@ -26,17 +26,18 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_below="@id/ops"
-        android:text="Ops necessário estar cadastrado, por favor faça o login"/>
+        android:text="@string/CadastroNecessario"
+        android:textColor="@color/TextColor"/>
 
     <TextView
         android:id="@id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="login"
+        android:text="@string/login"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_below="@id/textNotLogin"
-        android:textColor="#88c9bf"
+        android:textColor="@color/TextColorLoginButton"
         android:textSize="16dp"
         android:layout_marginBottom="12dp"
         android:onClick="goToRegister"/>

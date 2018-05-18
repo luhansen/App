@@ -18,9 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="72dp"
-            android:text="Olá!"
+            android:text="@string/Ola"
             android:fontFamily="@font/courgette_regular"
-            android:textColor="#FFD358"
+            android:textColor="@color/TextColorYellowTitle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="56dp"
             android:layout_marginBottom="30dp"
@@ -31,9 +31,9 @@
             android:id= "@+id/bemVindo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Bem vindo ao Meau!\nAqui você pode adotar, doar e ajudar\ncães e gatos com facilidade.\nQual o seu interesse?"
+            android:text="@string/BemVindo"
             android:layout_centerHorizontal="true"
-            android:textColor="#757575"
+            android:textColor="@color/TextColor"
             android:layout_below="@+id/ola"
             android:layout_marginRight="48dp"
             android:textSize="14dp"
@@ -56,28 +56,28 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/bemVindo"
                 android:layout_centerHorizontal="true"
-                android:text="Adotar"
+                android:text="@string/ButtonAdotar"
                 android:layout_marginBottom="6dp"
-                android:background="#FFD358"
-                android:textColor="#434343"/>
+                android:background="@color/BackColorYellowButton"
+                android:textColor="@color/TextColorYellowButton"/>
 
             <Button
                 android:id="@+id/buttonAjudar"
                 android:layout_width="232dp"
                 android:layout_height="40dp"
-                android:text="Ajudar"
+                android:text="@string/ButtonAjudar"
                 android:layout_marginBottom="6dp"
-                android:background="#FFD358"
-                android:textColor="#434343"/>
+                android:background="@color/BackColorYellowButton"
+                android:textColor="@color/TextColorYellowButton"/>
 
             <Button
                 android:id="@+id/buttonCadastrar"
                 android:layout_width="232dp"
                 android:layout_height="40dp"
-                android:text="Cadastrar animal"
+                android:text="@string/ButtonCadastrarAnimal"
                 android:layout_marginBottom="12dp"
-                android:background="#FFD358"
-                android:textColor="#434343"/>
+                android:background="@color/BackColorYellowButton"
+                android:textColor="@color/TextColorYellowButton"/>
 
 
 
@@ -87,11 +87,11 @@
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="login"
+            android:text="@string/login"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_below="@id/LinearLayoutButton1"
-            android:textColor="#88c9bf"
+            android:textColor="@color/TextColorLoginButton"
             android:textSize="16dp"
             android:layout_marginBottom="12dp"
             android:onClick="goToRegister"/>

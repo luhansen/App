@@ -3,4 +3,25 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="TextColorYellowTitle">#FFD358</color>
+    <color name="TextColorYellowButton">#434343</color>
+    <color name="BackColorYellowButton">#FFD358</color>
+    <color name="TextColor">#757575</color>
+    <color name="TextColorLoginButton">#88c9bf</color>
+
+    <color name="TextColorFazerCadastro">#76adad</color>
+    <color name="BackColorBlueButton">#194f7c</color>
+    <color name="BackColorRedButton">#f15f5c</color>
+    <color name="BackColorGreenButton">#88c9bf</color>
+    <color name="TextColorGreenBack">#434343</color>
+    <color name="TextColorRedBlueButton">#f7f7f7</color>
+
+    <color name="TextColorGreenInfo">#76adad</color>
+    
+    <color name="TextColorGreenArt">#589b9b</color>
+    <color name="TextColorLei">#434343</color>
+
+
+
 </resources>

@@ -2,8 +2,63 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="legislacao"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Lei"
+                android:textColor="@color/TextColorLei"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:textSize="16dp"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="CAPÍTULO II DAS DOAÇÕES"
+                    android:textColor="@color/TextColorGreenArt"/>
+
+                <TextView
+                    android:id="@+id/Art4id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Art4"
+                    android:textColor="@color/TextColor"/>
+
+                <TextView
+                    android:id="@+id/Art5id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Art5"
+                    android:textColor="@color/TextColor"/>
+                <TextView
+                    android:id="@+id/Art6id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Art6"
+                    android:textColor="@color/TextColor"/>
+                <TextView
+                    android:id="@+id/Art7id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Art7"
+                    android:textColor="@color/TextColor"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

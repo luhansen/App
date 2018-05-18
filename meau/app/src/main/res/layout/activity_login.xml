@@ -71,8 +71,8 @@
             <Button
                 android:id="@+id/email_sign_in_button"
                 style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="232dp"
+                android:layout_height="40dp"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
                 android:background="#88c9bf"
@@ -82,13 +82,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="72dp">
+                android:paddingVertical="50dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <Button
+                    android:layout_marginBottom="8dp"
+                    android:id="@+id/email_sign_in_facebook_button"
+                    android:layout_width="232dp"
+                    android:layout_height="40dp"
+                    android:text="@string/SignInFacebook"
+                    android:textStyle="bold"
+                    android:background="#194f7c"
+                    android:textColor="#f7f7f7"/>
 
                 <Button
                     android:id="@+id/email_sign_in_google_button"
                     style="?android:textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="232dp"
+                    android:layout_height="40dp"
                     android:text="@string/SignInGoogle"
                     android:textStyle="bold"
                     android:background="#f15f5c"
@@ -101,8 +113,8 @@
                 android:layout_marginBottom="12dp"
                 android:gravity="center"
                 android:onClick="goToRegisterUserActivity"
-                android:text="@string/register"
-                android:textColor="#434343"
+                android:text="@string/cadastar"
+                android:textColor="#76adad"
                 android:textSize="16dp"
                 tools:ignore="ObsoleteLayoutParam" />
 

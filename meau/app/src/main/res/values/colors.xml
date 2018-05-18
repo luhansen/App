@@ -22,6 +22,9 @@
     <color name="TextColorGreenArt">#589b9b</color>
     <color name="TextColorLei">#434343</color>
 
+    <color name="UnselectButton">#f1f2f2</color>
+
+
 
 
 </resources>

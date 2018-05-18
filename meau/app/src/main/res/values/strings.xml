@@ -58,4 +58,10 @@
     <string name="Art7">Art. 7º Aqueles elencados no § 1º do art. 4º podem cobrar taxa de adoção do animal, devendo para tanto fornecer ao adotante recibo especificando o valor da taxa e demais gastos.</string>
     <string name="Lei">Lei no 14.483, de 16 de julho de 2007</string>
 
+    <!--strings de cadastro animal-->
+    <string name="CadastrarPara">Tenho interesse em cadastrar o animal para:</string>
+    <string name="ButtonAdocao">Adoção</string>
+    <string name="ButtonApadrinhar">Apadrinhar</string>
+
+
 </resources>

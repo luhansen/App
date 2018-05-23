@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SendTermEnviado"
+            android:fontFamily="@font/courgette_regular"
+            android:textSize="53dp"
+            android:textColor="@color/TextColorGreenTitle"
+            android:layout_gravity="center"
+            android:paddingVertical="52dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="52dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SendTermPart1"
+                android:gravity="center"
+                android:paddingBottom="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SendTermPart2"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="232dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="24dp"
+        android:background="@color/BackColorGreenButton"
+        android:text="@string/Legislacao"
+        android:textColor="@color/TextColorGreenBack"
+        android:onClick="goToLegislacao"/>
+
+</FrameLayout>

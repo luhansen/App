@@ -35,6 +35,7 @@ import fragments.NotLoginFragment;
 import fragments.PerfilFragment;
 import fragments.PetsFragment;
 import fragments.PrivacidadeFragment;
+import fragments.SendTermFragment;
 import fragments.TermoFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -224,5 +225,17 @@ public class MainActivity extends AppCompatActivity
     public void goToRegister (View view){
         Intent intent = new Intent (this, LoginActivity.class);
         startActivity(intent);
+    }
+    public void goToSendTermoAdocao (View view){
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.ContentMainFrame, new SendTermFragment()).addToBackStack( "tag" ).commit();
+    }
+    public void goToSendTermoApadrinhamento (View view){
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.ContentMainFrame, new SendTermFragment()).addToBackStack( "tag" ).commit();
+    }
+    public void goToLegislacao (View view){
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.ContentMainFrame, new LegislacaoFragment()).addToBackStack( "tag" ).commit();
     }
 }

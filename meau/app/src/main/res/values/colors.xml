@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="TextColorYellowTitle">#FFD358</color>
+    <color name="TextColorGreenTitle">#88c9bf</color>
     <color name="TextColorYellowButton">#434343</color>
     <color name="BackColorYellowButton">#FFD358</color>
     <color name="TextColor">#757575</color>

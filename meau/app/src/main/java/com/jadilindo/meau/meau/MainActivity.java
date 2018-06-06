@@ -2,6 +2,8 @@ package com.jadilindo.meau.meau;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,7 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +45,17 @@ import fragments.TermoFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth mAuth = null;
+
+    private String[] alimentacaoNome = new String[]{"A importância de alimentar o pet com ração",
+            "A importância de alimentar o pet com ração",
+            "A importância de alimentar o pet com ração"};
+    private String[] comportamentoNome = new String[]{"A importância de alimentar o pet com ração",
+            "A importância de alimentar o pet com ração",
+            "A importância de alimentar o pet com ração"};
+    private String[] saudeNome = new String[]{"A importância de alimentar o pet com ração",
+            "A importância de alimentar o pet com ração",
+            "A importância de alimentar o pet com ração"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +85,14 @@ public class MainActivity extends AppCompatActivity
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new MainFragment()).commit();
+
+//        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+//        // Create an ArrayAdapter using the string array and a default spinner layout
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, alimentacaoNome);
+//        // Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        // Apply the adapter to the spinner
+//        spinner.setAdapter(adapter);
     }
 
     @Override

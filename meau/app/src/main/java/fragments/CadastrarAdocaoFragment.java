@@ -6,24 +6,18 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.jadilindo.meau.meau.R;
 
 /**
- * Created by pedro on 09/05/18.
+ * Created by pedro on 23/05/18.
  */
 
-public class AtalhoCadastrarFragment extends Fragment {
-
+public class CadastrarAdocaoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.fragment_atalho_cadastrar, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_cadastrar_adocao, container, false);
         return rootView;
     }
-
-
-
 }

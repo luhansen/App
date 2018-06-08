@@ -62,6 +62,37 @@
     <string name="CadastrarPara">Tenho interesse em cadastrar o animal para:</string>
     <string name="ButtonAdocao">Adoção</string>
     <string name="ButtonApadrinhar">Apadrinhar</string>
+    <string name="NomeAnimal">NOME DO ANIMAL</string>
+    <string name="Adocao">ADOÇÃO</string>
+    <string name="Especie">ESPÉCIE</string>
+    <string name="Sexo">SEXO</string>
+    <string name="Porte">PORTE</string>
+    <string name="FotoAnimal">FOTOS DO ANIMAL</string>
+    <string name="Idade">IDADE</string>
+    <string name="Temperamento">TEMPERAMENTO</string>
+    <string name="ExigenciasAdocao">EXIGÊNCIAS PARA ADOÇÃO</string>
+    <string name="SobreAnimal">SOBRE O ANIMAL</string>
+    <string name="Cachorro">Cachorro</string>
+    <string name="Gato">Gato</string>
+    <string name="Macho">Macho</string>
+    <string name="Femea">Fêmea</string>
+    <string name="Pequno">Pequno</string>
+    <string name="Medio">Médio</string>
+    <string name="Grande">Grande</string>
+    <string name="Filhote">Filhote</string>
+    <string name="Adulto">Adulto</string>
+    <string name="Idoso">Idoso</string>
+    <string name="Brincalhao">Brincalhão</string>
+    <string name="Timido">Tímido</string>
+    <string name="Calmo">Calmo</string>
+    <string name="Guarda">Guarda</string>
+    <string name="Amoroso">Amoroso</string>
+    <string name="Preguicoso">Preguiçoso</string>
+    <string name="Vacinado">Vacinado</string>
+    <string name="Vermifugado">Vermifugado</string>
+    <string name="Castrado">Castrado</string>
+    <string name="Doente">Doente</string>
+
 
     <!--strings de termo de adocao-->
     <string name="TextTermo">O termo de adoção é um termo que oficializa o processo de adoção de um animal. Similarmente funciona o termo de apadrinhamento.\n\nÉ importante que o doador/dono exija a assinatura deste termo por parte do adotante/padrinho, de forma a ter prova legal de que a pessoa adquiriu o animal. Assim, podem ser tomadas providências legais em caso de maus tratos ou negligência ao animal.\n\nPara facilitar o processo, o Meau disponibiliza o termo aos seus doadores e donos de animais que utilizam o aplicativo para encontrar um destino e/ou ajuda para seu bichinho. Este termo é enviado por e-mail para que possa ser feita a impressão e, no momento de entrega do animal (ou quando o padrinho vai conhecê-lo), seja feita a assinatura por parte do adotante/padrinho.\n\nPressionando os botões abaixo, você receberá em seu email o termo em questão, nos formatos .doc (word) e .pdf.</string>
@@ -79,5 +110,6 @@
     <string name="Comportamento">Comportamento</string>
     <string name="Saude">Saude</string>
     <string name="Alimentacao">Alimentação</string>
+
 
 </resources>

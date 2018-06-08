@@ -28,6 +28,8 @@ import fragments.AtalhoAdotarFragment;
 import fragments.AtalhoAjudarFragment;
 import fragments.AtalhoApadrinharFragment;
 import fragments.AtalhoCadastrarFragment;
+import fragments.CadastrarAdocaoFragment;
+import fragments.CadastrarApadrinharFragment;
 import fragments.ChatFragment;
 import fragments.DicasFragment;
 import fragments.EventosFragment;
@@ -178,7 +180,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.atalhos_cadastrar) {
             Toast.makeText(this,"cadastrar",Toast.LENGTH_SHORT).show();
             if(currentUser != null) {
-                fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoCadastrarFragment()).addToBackStack( "tag" ).commit();
+                Intent intent = new Intent (this, RegisterAnimal.class);
+                startActivity(intent);
             }
 
         } else if (id == R.id.atalhos_adotar) {
@@ -249,6 +252,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent (this, LoginActivity.class);
         startActivity(intent);
     }
+
     public void goToSendTermoAdocao (View view){
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new SendTermFragment()).addToBackStack( "tag" ).commit();
@@ -261,4 +265,5 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new LegislacaoFragment()).addToBackStack( "tag" ).commit();
     }
+
 }

@@ -28,6 +28,7 @@
                 android:layout_marginBottom="8dp"
                 android:onClick="goToSendTermoAdocao"/>
             <Button
+                android:id="@+id/send"
                 android:layout_width="232dp"
                 android:layout_height="40dp"
                 android:background="@color/BackColorGreenButton"

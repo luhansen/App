@@ -49,8 +49,8 @@
     <!--strings related to not login-->
     <string name="Ops">Ops!</string>
     <string name="CadastroNecessario">Ops necessário estar cadastrado, por favor faça o login</string>
-    
-    
+
+
     <!--string legislacao-->
     <string name="Art4">Art. 4º É permitida a realização de eventos de doação de cães e gatos em estabelecimentos devidamente legalizados.\n§ 1º A feira só poderá ser realizada sob a responsabilidade de pessoa física ou jurídica, de direito público ou privado, sem fins lucrativos mantenedoras ou responsáveis por cães e gatos.\n§ 2º Para identificação da entidade, associação, instituição ou pessoa promotora do evento é necessário a existência de uma placa, em local visível, no espaço de realização do evento de doação, contendo: nome do promotor, seja pessoa física ou jurídica, CPF ou CNPJ, com respectivo telefone.\n§ 3º Pet shops ou clínicas veterinárias podem promover doações de animais, desde que haja identificação do responsável pela atividade, no local de exposição dos animais, atendendo-se às exigências previstas no parágrafo anterior.\n§ 4º Os animais expostos para doação devem estar devidamente esterilizados e submetidos a controle de endo e ectoparasitas, bem como submetidos ao esquema de vacinação contra a raiva e doenças espécie-específicas, conforme respectiva faixa etária, mediante atestados.</string>
     <string name="Art5">Art. 5º As doações serão regidas por contrato específico, cujas obrigações previstas, por escrito, devem contemplar os dados qualificativos do animal, do adotante e do doador, as responsabilidades do adotante, as penalidades no caso de descumprimento, a permissão de monitoramento pelo doador e as condições de bem-estar e manutenção do animal.\nParágrafo único. Antes da consumação da doação e da assinatura do contrato, o potencial adotante deve ser amplamente informado e conscientizado sobre a convivência da família com um animal, noções de comportamento, expectativa de vida, provável porte do animal na fase adulta (no caso de filhotes), necessidades nutricionais e de saúde.</string>
@@ -62,6 +62,38 @@
     <string name="CadastrarPara">Tenho interesse em cadastrar o animal para:</string>
     <string name="ButtonAdocao">Adoção</string>
     <string name="ButtonApadrinhar">Apadrinhar</string>
+    <string name="NomeAnimal">NOME DO ANIMAL</string>
+    <string name="Adocao">ADOÇÃO</string>
+    <string name="Especie">ESPÉCIE</string>
+    <string name="Sexo">SEXO</string>
+    <string name="Porte">PORTE</string>
+    <string name="FotoAnimal">FOTOS DO ANIMAL</string>
+    <string name="Idade">IDADE</string>
+    <string name="Temperamento">TEMPERAMENTO</string>
+    <string name="Saude">SAÚDE</string>
+    <string name="ExigenciasAdocao">EXIGÊNCIAS PARA ADOÇÃO</string>
+    <string name="SobreAnimal">SOBRE O ANIMAL</string>
+    <string name="Cachorro">Cachorro</string>
+    <string name="Gato">Gato</string>
+    <string name="Macho">Macho</string>
+    <string name="Femea">Fêmea</string>
+    <string name="Pequno">Pequno</string>
+    <string name="Medio">Médio</string>
+    <string name="Grande">Grande</string>
+    <string name="Filhote">Filhote</string>
+    <string name="Adulto">Adulto</string>
+    <string name="Idoso">Idoso</string>
+    <string name="Brincalhao">Brincalhão</string>
+    <string name="Timido">Tímido</string>
+    <string name="Calmo">Calmo</string>
+    <string name="Guarda">Guarda</string>
+    <string name="Amoroso">Amoroso</string>
+    <string name="Preguicoso">Preguiçoso</string>
+    <string name="Vacinado">Vacinado</string>
+    <string name="Vermifugado">Vermifugado</string>
+    <string name="Castrado">Castrado</string>
+    <string name="Doente">Doente</string>
 
+    
 
 </resources>

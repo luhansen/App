@@ -70,7 +70,6 @@
     <string name="FotoAnimal">FOTOS DO ANIMAL</string>
     <string name="Idade">IDADE</string>
     <string name="Temperamento">TEMPERAMENTO</string>
-    <string name="Saude">SAÚDE</string>
     <string name="ExigenciasAdocao">EXIGÊNCIAS PARA ADOÇÃO</string>
     <string name="SobreAnimal">SOBRE O ANIMAL</string>
     <string name="Cachorro">Cachorro</string>
@@ -94,6 +93,23 @@
     <string name="Castrado">Castrado</string>
     <string name="Doente">Doente</string>
 
+
+    <!--strings de termo de adocao-->
+    <string name="TextTermo">O termo de adoção é um termo que oficializa o processo de adoção de um animal. Similarmente funciona o termo de apadrinhamento.\n\nÉ importante que o doador/dono exija a assinatura deste termo por parte do adotante/padrinho, de forma a ter prova legal de que a pessoa adquiriu o animal. Assim, podem ser tomadas providências legais em caso de maus tratos ou negligência ao animal.\n\nPara facilitar o processo, o Meau disponibiliza o termo aos seus doadores e donos de animais que utilizam o aplicativo para encontrar um destino e/ou ajuda para seu bichinho. Este termo é enviado por e-mail para que possa ser feita a impressão e, no momento de entrega do animal (ou quando o padrinho vai conhecê-lo), seja feita a assinatura por parte do adotante/padrinho.\n\nPressionando os botões abaixo, você receberá em seu email o termo em questão, nos formatos .doc (word) e .pdf.</string>
+    <string name="ButtonTermoAdocao">Termo de adoção</string>
+    <string name="ButtonTermoApadrinhamento">Termo de apadrinhamento</string>
+    <string name="SendTermEnviado">Enviado</string>
+    <string name="SendTermPart1">O termo já foi enviado para o seu email.\nCaso não tenha recebido, verifique se o seu email está cadastrado corretamente na área “meu perfil”, no menu principal.</string>
+    <string name="SendTermPart2"> Para entender um pouco mais sobre as leis que envolvem esse processo, acesse nossa área de legislação!</string>
+    <string name="Legislacao">Legislação</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     
+    
+    <!--string de dicas-->
+    <string name="Comportamento">Comportamento</string>
+    <string name="Saude">Saude</string>
+    <string name="Alimentacao">Alimentação</string>
+
 
 </resources>

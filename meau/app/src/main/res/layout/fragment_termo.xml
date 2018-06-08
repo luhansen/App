@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="termo"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TextTermo"
+            android:textSize="14dp"
+            android:paddingTop="16dp"
+            android:paddingHorizontal="24dp"
+            android:paddingBottom="20dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <Button
+                android:layout_width="232dp"
+                android:layout_height="40dp"
+                android:background="@color/BackColorGreenButton"
+                android:text="@string/ButtonTermoAdocao"
+                android:textColor="@color/TextColorGreenBack"
+                android:layout_marginBottom="8dp"
+                android:onClick="goToSendTermoAdocao"/>
+            <Button
+                android:layout_width="232dp"
+                android:layout_height="40dp"
+                android:background="@color/BackColorGreenButton"
+                android:text="@string/ButtonTermoApadrinhamento"
+                android:textColor="@color/TextColorGreenBack"
+                android:onClick="goToSendTermoApadrinhamento"/>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

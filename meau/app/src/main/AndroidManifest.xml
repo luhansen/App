@@ -31,7 +31,6 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".RegisterAnimal"></activity>
-        <activity android:name=".MailSenderActivity"></activity>
     </application>
 
 </manifest>

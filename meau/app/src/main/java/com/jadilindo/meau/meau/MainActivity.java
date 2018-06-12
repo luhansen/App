@@ -2,13 +2,11 @@ package com.jadilindo.meau.meau;
 
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,9 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,9 +23,6 @@ import com.google.firebase.auth.FirebaseUser;
 import fragments.AtalhoAdotarFragment;
 import fragments.AtalhoAjudarFragment;
 import fragments.AtalhoApadrinharFragment;
-import fragments.AtalhoCadastrarFragment;
-import fragments.CadastrarAdocaoFragment;
-import fragments.CadastrarApadrinharFragment;
 import fragments.ChatFragment;
 import fragments.DicasFragment;
 import fragments.EventosFragment;
@@ -256,8 +249,20 @@ public class MainActivity extends AppCompatActivity
     public void goToSendTermoAdocao (View view){
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new SendTermFragment()).addToBackStack( "tag" ).commit();
+
     }
     public void goToSendTermoApadrinhamento (View view){
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String email = (String)("mailto:" + currentUser.getEmail());
+        String mailto = email +
+                "?subject=" + "Termo de apadrinhamento" +
+                "&body=" + getResources().getString(R.string.TextTermo);;
+
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse(mailto));
+
+            startActivity(emailIntent);
+
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new SendTermFragment()).addToBackStack( "tag" ).commit();
     }

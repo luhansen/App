@@ -2,8 +2,62 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="apadrinhar"/>
+        android:orientation="vertical"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EXIGÊNCIAS PARA APADRINHAMENTO"
+            android:textColor="@color/TextYellow"
+            android:textSize="12dp"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_termo_apadrinhamento"
+            android:text="Termo de apadrinhamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+        <CheckBox
+            android:id="@+id/checkbox_auxilio_financeiro"
+            android:text="Auxílio financeiro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/checkbox_alimentacao"
+            android:text="Alimentação"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp">
+        </CheckBox>
+        <CheckBox
+            android:id="@+id/checkbox_saude_apadrinhamento"
+            android:text="Saúde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp">
+        </CheckBox>
+        <CheckBox
+            android:id="@+id/checkbox_objetos_apadrinhamento"
+            android:text="Objetos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp">
+        </CheckBox>
+        <CheckBox
+            android:id="@+id/checkbox_visita_animal_apadrinhamento"
+            android:text="Visitas ao animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+
+
+    </LinearLayout>
 </FrameLayout>

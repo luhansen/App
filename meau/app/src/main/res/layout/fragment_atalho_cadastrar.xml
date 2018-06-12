@@ -48,6 +48,271 @@
                     android:onClick="startRegisterAnimalForm"/>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/cadastro_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Adocao"
+                android:textSize="16dp"
+                android:textColor="@color/TextColorLei"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="@string/NomeAnimal"
+                android:textColor="@color/TextYellow"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/nome_do_animal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/NomeAnimal"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FotoAnimal"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+            
+            <Button
+                android:id="@+id/adicionar_fotos_cadastro"
+                android:layout_width="312dp"
+                android:layout_height="128dp"
+                android:text="adicionar fotos"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Especie"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+            <RadioGroup
+                android:id="@+id/radio_especie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radio_especie_cachorro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cachorro"/>
+                <RadioButton
+                    android:id="@+id/radio_especie_gato"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Gato"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Sexo"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+            <RadioGroup
+                android:id="@+id/radio_sexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radio_sexo_macho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Macho"/>
+                <RadioButton
+                    android:id="@+id/radio_sexo_femea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Femea"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Porte"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+
+            <RadioGroup
+                android:id="@+id/radio_porte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radio_porte_pequeno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Pequno"/>
+                <RadioButton
+                    android:id="@+id/radio_porte_medio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Medio"/>
+                <RadioButton
+                    android:id="@+id/radio_porte_grande"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Grande"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Idade"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+
+
+            <RadioGroup
+                android:id="@+id/radio_idade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/radio_idade_filhote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Filhote"/>
+                <RadioButton
+                    android:id="@+id/radio_idade_adulto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Adulto"/>
+                <RadioButton
+                    android:id="@+id/radio_idade_idoso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Idoso"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Temperamento"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/checkbox_temperamento_brincalhao"
+                    android:text="@string/Brincalhao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkbox_temperamento_timido"
+                    android:text="@string/Timido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkbox_temperamento_calmo"
+                    android:text="@string/Calmo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/checkbox_temperamento_guarda"
+                    android:text="@string/Guarda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkbox_temperamento_amoroso"
+                    android:text="@string/Amoroso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkbox_temperamento_preguicoso"
+                    android:text="@string/Preguicoso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Saude"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/checkbox_saude_vacinado"
+                    android:text="@string/Vacinado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkbox_saude_vermifugado"
+                    android:text="@string/Vermifugado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:id="@+id/checkbox_saude_castrado"
+                    android:text="@string/Castrado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/checkbox_saude_doente"
+                    android:text="@string/Doente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </CheckBox>
+
+
+            </LinearLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/detalhes_doencas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Doenças"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
             <FrameLayout
                 android:id="@+id/cadastrar_fragment"
                 android:layout_width="match_parent"
@@ -55,6 +320,37 @@
                 <!--fragmento depende do button selecionado-->
 
             </FrameLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SobreAnimal"
+                android:textColor="@color/TextYellow"
+                android:textSize="12dp"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/compartilhe_historia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Compartilhe a historia"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/button_cadastrar_animal"
+                android:layout_width="232dp"
+                android:layout_height="40dp"
+                android:background="@color/BackColorYellowButton"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="24dp"
+                />
 
         </LinearLayout>
     </ScrollView>

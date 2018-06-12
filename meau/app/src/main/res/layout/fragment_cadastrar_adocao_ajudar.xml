@@ -2,8 +2,130 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="adotar e ajudar"/>
+        android:orientation="vertical"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ExigenciasAdocao"
+            android:textColor="@color/TextYellow"
+            android:textSize="12dp"/>
+
+        <CheckBox
+            android:id="@id/checkbox_termo_adocao"
+            android:text="Termo de adoção"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_fotos_casa_adocao"
+            android:text="Fotos da casa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_visita_previa_adocao"
+            android:text="Visita prévia ao animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_acompanhamento_pos_adocao"
+            android:text="Acompanhamento pós adoção"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+
+        <CheckBox
+            android:id="@id/checkbox_acompanhamento_1_mes"
+            android:text="1 mês"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_acompanhamento_3_meses"
+            android:text="3 meses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_acompanhamento_6_meses"
+            android:text="6 meses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp">
+        </CheckBox>
+
+
+        <!--ajudar-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NECESSIDADES DO ANIMAL"
+            android:textColor="@color/TextYellow"
+            android:textSize="12dp"/>
+
+        <CheckBox
+            android:id="@id/checkbox_alimento_ajudar"
+            android:text="Alimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_auxilio_financeiro_ajudar"
+            android:text="Auxílio financeiro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+        <CheckBox
+            android:id="@id/checkbox_medicamento_ajudar"
+            android:text="Medicamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </CheckBox>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@id/detalhes_medicamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome do medicamento"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@id/objetos_ajudar"
+            android:text="Objetos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </CheckBox>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@id/detalhes_objetos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Especifique o(s) objeto(s)"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
 </FrameLayout>

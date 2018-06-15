@@ -1,5 +1,7 @@
 package com.jadilindo.meau.meau;
 
+import java.util.ArrayList;
+
 public class User {
     private String name;
     private String age;
@@ -9,11 +11,11 @@ public class User {
     private String picture;
     private String address;
     private String phone_number;
-    private Chat[] chats;
-    private Animal[] favorites;
-    private Animal[] owns;
-    private RequestForAdoption[] requests_for_adoption;
-    private RequestForHelp[] requests_for_help;
+    public ArrayList<Chat> chats;
+    public ArrayList<Animal> favorites;
+    public ArrayList<Animal> owns;
+    public ArrayList<RequestForAdoption> requests_for_adoption;
+    public ArrayList<RequestForHelp> requests_for_help;
 
     public User(){
     }
@@ -29,11 +31,11 @@ public class User {
                 String picture,
                 String address,
                 String phone_number,
-                Chat[] chats,
-                Animal[] favorites,
-                Animal[] owns,
-                RequestForAdoption[] requests_for_adoption,
-                RequestForHelp[] requests_for_help) {
+                ArrayList<Chat> chats,
+                ArrayList<Animal> favorites,
+                ArrayList<Animal> owns,
+                ArrayList<RequestForAdoption> requests_for_adoption,
+                ArrayList<RequestForHelp> requests_for_help) {
 
         this.name = name;
         this.age = age;
@@ -114,43 +116,44 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    public Chat[] getChats() {
+
+    public ArrayList<Chat> getChats() {
         return chats;
     }
 
-    public void setChats(Chat[] chats) {
+    public void setChats(ArrayList<Chat> chats) {
         this.chats = chats;
     }
 
-    public Animal[] getFavorites() {
+    public ArrayList<Animal> getFavorites() {
         return favorites;
     }
 
-    public void setFavorites(Animal[] favorites) {
+    public void setFavorites(ArrayList<Animal> favorites) {
         this.favorites = favorites;
     }
 
-    public Animal[] getOwns() {
+    public ArrayList<Animal> getOwns() {
         return owns;
     }
 
-    public void setOwns(Animal[] owns) {
+    public void setOwns(ArrayList<Animal> owns) {
         this.owns = owns;
     }
 
-    public RequestForAdoption[] getRequests_for_adoption() {
+    public ArrayList<RequestForAdoption> getRequests_for_adoption() {
         return requests_for_adoption;
     }
 
-    public void setRequests_for_adoption(RequestForAdoption[] requests_for_adoption) {
+    public void setRequests_for_adoption(ArrayList<RequestForAdoption> requests_for_adoption) {
         this.requests_for_adoption = requests_for_adoption;
     }
 
-    public RequestForHelp[] getRequests_for_help() {
+    public ArrayList<RequestForHelp> getRequests_for_help() {
         return requests_for_help;
     }
 
-    public void setRequests_for_help(RequestForHelp[] requests_for_help) {
+    public void setRequests_for_help(ArrayList<RequestForHelp> requests_for_help) {
         this.requests_for_help = requests_for_help;
     }
 }

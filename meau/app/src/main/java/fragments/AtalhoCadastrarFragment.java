@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.jadilindo.meau.meau.R;
 
 /**
@@ -23,6 +26,7 @@ public class AtalhoCadastrarFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_atalho_cadastrar, container, false);
         return rootView;
     }
+
 
 
 

@@ -57,6 +57,7 @@
                 android:layout_below="@+id/bemVindo"
                 android:layout_centerHorizontal="true"
                 android:text="@string/ButtonAdotar"
+                android:onClick="adoptAnimal"
                 android:layout_marginBottom="6dp"
                 android:background="@color/BackColorYellowButton"
                 android:textColor="@color/TextColorYellowButton"/>
@@ -67,6 +68,7 @@
                 android:layout_height="40dp"
                 android:text="@string/ButtonAjudar"
                 android:layout_marginBottom="6dp"
+                android:onClick="helpAnimal"
                 android:background="@color/BackColorYellowButton"
                 android:textColor="@color/TextColorYellowButton"/>
 
@@ -76,6 +78,7 @@
                 android:layout_height="40dp"
                 android:text="@string/ButtonCadastrarAnimal"
                 android:layout_marginBottom="12dp"
+                android:onClick="registerAnimal"
                 android:background="@color/BackColorYellowButton"
                 android:textColor="@color/TextColorYellowButton"/>
 

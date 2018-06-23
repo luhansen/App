@@ -151,7 +151,7 @@
                     android:id="@+id/radio_porte_pequeno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Pequno"/>
+                    android:text="@string/Pequeno"/>
                 <RadioButton
                     android:id="@+id/radio_porte_medio"
                     android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.jadilindo.meau.meau;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,7 +18,9 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -97,15 +100,36 @@ public class MainActivity extends AppCompatActivity
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        // Apply the adapter to the spinner
 //        spinner.setAdapter(adapter);
+
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
-            Toast.makeText(this, "Usuário " + currentUser.getEmail() + " logado", Toast.LENGTH_SHORT).show();
+        TextView field = findViewById(R.id.login);
+        if(field != null) {
+            View.OnClickListener logoutListener = new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    mAuth.signOut();
+                    goToRegister(view);
+                }
+            };
+            View.OnClickListener loginListener = new View.OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    goToRegister(view);
+                }
+            };
+            if (currentUser != null) {
+                field.setText("logout");
+                field.setOnClickListener(logoutListener);
+            } else {
+                field.setText("login");
+                field.setOnClickListener(loginListener);
+            }
         }
     }
 
@@ -166,6 +190,9 @@ public class MainActivity extends AppCompatActivity
             if(currentUser != null) {
                 fm.beginTransaction().replace(R.id.ContentMainFrame, new PetsFragment()).addToBackStack( "tag" ).commit();
             }
+
+        } else if (id == R.id.nav_home) {
+            goToHome();
 
         } else if (id == R.id.nav_favoritos) {
             Toast.makeText(this,"pagina dos favoritos",Toast.LENGTH_SHORT).show();
@@ -275,10 +302,45 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new SendTermFragment()).addToBackStack( "tag" ).commit();
     }
+
     public void goToLegislacao (View view){
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.ContentMainFrame, new LegislacaoFragment()).addToBackStack( "tag" ).commit();
     }
+
+    public void goToHome (){
+        Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void adoptAnimal(View view){
+        FragmentManager fm = getFragmentManager();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        Toast.makeText(this,"adotar",Toast.LENGTH_SHORT).show();
+        if(currentUser != null) {
+            fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoAdotarFragment()).addToBackStack( "tag" ).commit();
+        }
+    }
+
+    public void registerAnimal(View view){
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        Toast.makeText(this,"cadastrar",Toast.LENGTH_SHORT).show();
+        if(currentUser != null) {
+            Intent intent = new Intent (this, RegisterAnimal.class);
+            startActivity(intent);
+        }
+    }
+
+    public void helpAnimal(View view){
+        FragmentManager fm = getFragmentManager();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        Toast.makeText(this,"ajudar",Toast.LENGTH_SHORT).show();
+        if(currentUser != null) {
+            fm.beginTransaction().replace(R.id.ContentMainFrame, new AtalhoAjudarFragment()).addToBackStack( "tag" ).commit();
+        }
+    }
+
 
 
 }

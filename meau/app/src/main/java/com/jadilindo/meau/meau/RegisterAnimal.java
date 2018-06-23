@@ -1,6 +1,7 @@
 package com.jadilindo.meau.meau;
 
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -234,8 +235,8 @@ public class RegisterAnimal extends AppCompatActivity {
             //creating an User Object
             String id = databaseUsers.push().getKey();
             String type;
-            if (flagb1 && flagb3) type = "para_adocao";
-            else if (flagb2 && flagb3) type = "para_apadrinhar";
+            if (flagb1 && flagb3) type = "para_adocao_e_ajuda";
+            else if (flagb2 && flagb3) type = "para_apadrinhar_e_ajuda";
             else if (flagb1) type = "para_adocao";
             else if (flagb2) type = "para_apadrinhar";
             else if (flagb3) type = "para_ajudar";
@@ -284,13 +285,12 @@ public class RegisterAnimal extends AppCompatActivity {
                         for (DataSnapshot db_user : dataSnapshot.getChildren()) {
                             user = db_user.getValue(User.class);
                             if (user != null) {
-                                db_user.getRef().removeValue();
                                 if (user.owns == null) user.owns = new ArrayList<>();
                                 user.owns.add(animal);
-                                String user_id = databaseUsers.push().getKey();
-                                databaseUsers.child(user_id).setValue(user);
+                                db_user.getRef().setValue(user);
                                 Toast.makeText(RegisterAnimal.this,
                                 "Animal Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     }

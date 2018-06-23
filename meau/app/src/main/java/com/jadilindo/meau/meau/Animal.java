@@ -2,7 +2,7 @@ package com.jadilindo.meau.meau;
 
 import java.util.ArrayList;
 
-class Animal {
+public class Animal {
     private String id;
     private String name;
     private String species;
@@ -32,7 +32,10 @@ class Animal {
     private boolean obj_finantial_sponsor;
     private boolean visit_sponsor;
     private boolean adopted;
+    private String targetUserEmail;
     private boolean sponsored;
+    private boolean helped;
+    private String userHelperEmail;
     private String action_type;
 
     Animal(String id,String name, String species, String gender, String size, String age,
@@ -121,6 +124,78 @@ class Animal {
         this.visit_sponsor = visit_sponsor;
         this.adopted = adopted;
         this.sponsored = sponsored;
+        this.action_type = action_type;
+    }
+
+    public Animal(String id, String name, String species, String gender, String size, String age, ArrayList<String> temper, ArrayList<String> health, String desease, String about, boolean adoption_term, boolean pictures_of_house, boolean previous_visit, boolean supervision_1month, boolean supervision_3months, boolean supervision_6months, boolean food_need, boolean finantial_need, boolean med_need, String med_name_need, boolean obj_need, String obj_details_need, boolean sponsor_term, boolean finantial_sponsor, boolean food_finantial_sponsor, boolean health_finantial_sponsor, boolean obj_finantial_sponsor, boolean visit_sponsor, boolean adopted, String targetUserEmail, boolean sponsored, String action_type) {
+        this.id = id;
+        this.name = name;
+        this.species = species;
+        this.gender = gender;
+        this.size = size;
+        this.age = age;
+        this.temper = temper;
+        this.health = health;
+        this.desease = desease;
+        this.about = about;
+        this.adoption_term = adoption_term;
+        this.pictures_of_house = pictures_of_house;
+        this.previous_visit = previous_visit;
+        this.supervision_1month = supervision_1month;
+        this.supervision_3months = supervision_3months;
+        this.supervision_6months = supervision_6months;
+        this.food_need = food_need;
+        this.finantial_need = finantial_need;
+        this.med_need = med_need;
+        this.med_name_need = med_name_need;
+        this.obj_need = obj_need;
+        this.obj_details_need = obj_details_need;
+        this.sponsor_term = sponsor_term;
+        this.finantial_sponsor = finantial_sponsor;
+        this.food_finantial_sponsor = food_finantial_sponsor;
+        this.health_finantial_sponsor = health_finantial_sponsor;
+        this.obj_finantial_sponsor = obj_finantial_sponsor;
+        this.visit_sponsor = visit_sponsor;
+        this.adopted = adopted;
+        this.targetUserEmail = targetUserEmail;
+        this.sponsored = sponsored;
+        this.action_type = action_type;
+    }
+
+    public Animal(String id, String name, String species, String gender, String size, String age, ArrayList<String> temper, ArrayList<String> health, String desease, String about, boolean adoption_term, boolean pictures_of_house, boolean previous_visit, boolean supervision_1month, boolean supervision_3months, boolean supervision_6months, boolean food_need, boolean finantial_need, boolean med_need, String med_name_need, boolean obj_need, String obj_details_need, boolean sponsor_term, boolean finantial_sponsor, boolean food_finantial_sponsor, boolean health_finantial_sponsor, boolean obj_finantial_sponsor, boolean visit_sponsor, boolean adopted, String targetUserEmail, boolean sponsored, boolean helped, String userHelperEmail, String action_type) {
+        this.id = id;
+        this.name = name;
+        this.species = species;
+        this.gender = gender;
+        this.size = size;
+        this.age = age;
+        this.temper = temper;
+        this.health = health;
+        this.desease = desease;
+        this.about = about;
+        this.adoption_term = adoption_term;
+        this.pictures_of_house = pictures_of_house;
+        this.previous_visit = previous_visit;
+        this.supervision_1month = supervision_1month;
+        this.supervision_3months = supervision_3months;
+        this.supervision_6months = supervision_6months;
+        this.food_need = food_need;
+        this.finantial_need = finantial_need;
+        this.med_need = med_need;
+        this.med_name_need = med_name_need;
+        this.obj_need = obj_need;
+        this.obj_details_need = obj_details_need;
+        this.sponsor_term = sponsor_term;
+        this.finantial_sponsor = finantial_sponsor;
+        this.food_finantial_sponsor = food_finantial_sponsor;
+        this.health_finantial_sponsor = health_finantial_sponsor;
+        this.obj_finantial_sponsor = obj_finantial_sponsor;
+        this.visit_sponsor = visit_sponsor;
+        this.adopted = adopted;
+        this.targetUserEmail = targetUserEmail;
+        this.sponsored = sponsored;
+        this.helped = helped;
+        this.userHelperEmail = userHelperEmail;
         this.action_type = action_type;
     }
 
@@ -370,5 +445,29 @@ class Animal {
 
     public void setSponsored(boolean sponsored) {
         this.sponsored = sponsored;
+    }
+
+    public String getTargetUserEmail() {
+        return targetUserEmail;
+    }
+
+    public void setTargetUserEmail(String targetUserEmail) {
+        this.targetUserEmail = targetUserEmail;
+    }
+
+    public boolean isHelped() {
+        return helped;
+    }
+
+    public void setHelped(boolean helped) {
+        this.helped = helped;
+    }
+
+    public String getUserHelperEmail() {
+        return userHelperEmail;
+    }
+
+    public void setUserHelperEmail(String userHelperEmail) {
+        this.userHelperEmail = userHelperEmail;
     }
 }

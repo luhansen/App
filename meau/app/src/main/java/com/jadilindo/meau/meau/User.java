@@ -3,6 +3,7 @@ package com.jadilindo.meau.meau;
 import java.util.ArrayList;
 
 public class User {
+    private String id;
     private String name;
     private String age;
     private String user_name;
@@ -14,6 +15,8 @@ public class User {
     public ArrayList<Chat> chats;
     public ArrayList<Animal> favorites;
     public ArrayList<Animal> owns;
+    public ArrayList<Animal> sponsors;
+    public ArrayList<Animal> helps;
     public ArrayList<RequestForAdoption> requests_for_adoption;
     public ArrayList<RequestForHelp> requests_for_help;
 
@@ -48,6 +51,42 @@ public class User {
         this.chats = chats;
         this.favorites = favorites;
         this.owns = owns;
+        this.requests_for_adoption = requests_for_adoption;
+        this.requests_for_help = requests_for_help;
+    }
+
+    public User(String id, String name, String age, String user_name, String email, String password, String picture, String address, String phone_number, ArrayList<Chat> chats, ArrayList<Animal> favorites, ArrayList<Animal> owns, ArrayList<RequestForAdoption> requests_for_adoption, ArrayList<RequestForHelp> requests_for_help) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.user_name = user_name;
+        this.email = email;
+        this.password = password;
+        this.picture = picture;
+        this.address = address;
+        this.phone_number = phone_number;
+        this.chats = chats;
+        this.favorites = favorites;
+        this.owns = owns;
+        this.requests_for_adoption = requests_for_adoption;
+        this.requests_for_help = requests_for_help;
+    }
+
+    public User(String id, String name, String age, String user_name, String email, String password, String picture, String address, String phone_number, ArrayList<Chat> chats, ArrayList<Animal> favorites, ArrayList<Animal> owns, ArrayList<Animal> sponsors, ArrayList<Animal> helps, ArrayList<RequestForAdoption> requests_for_adoption, ArrayList<RequestForHelp> requests_for_help) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.user_name = user_name;
+        this.email = email;
+        this.password = password;
+        this.picture = picture;
+        this.address = address;
+        this.phone_number = phone_number;
+        this.chats = chats;
+        this.favorites = favorites;
+        this.owns = owns;
+        this.sponsors = sponsors;
+        this.helps = helps;
         this.requests_for_adoption = requests_for_adoption;
         this.requests_for_help = requests_for_help;
     }
@@ -155,5 +194,29 @@ public class User {
 
     public void setRequests_for_help(ArrayList<RequestForHelp> requests_for_help) {
         this.requests_for_help = requests_for_help;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ArrayList<Animal> getSponsors() {
+        return sponsors;
+    }
+
+    public void setSponsors(ArrayList<Animal> sponsors) {
+        this.sponsors = sponsors;
+    }
+
+    public ArrayList<Animal> getHelps() {
+        return helps;
+    }
+
+    public void setHelps(ArrayList<Animal> helps) {
+        this.helps = helps;
     }
 }

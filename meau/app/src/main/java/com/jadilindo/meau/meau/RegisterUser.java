@@ -57,7 +57,8 @@ public class RegisterUser extends AppCompatActivity {
             //it will create a unique id and we will use it as the Primary Key for our User
             String id = databaseUsers.push().getKey();
             //creating an User Object
-            User user = new User(   name,
+            User user = new User(   id,
+                                    name,
                                     age,
                                     user_name,
                                     user_email,
@@ -65,6 +66,8 @@ public class RegisterUser extends AppCompatActivity {
                                     "-",
                                     address,
                                     phone_number,
+                                    null,
+                                    null,
                                     null,
                                     null,
                                     null,

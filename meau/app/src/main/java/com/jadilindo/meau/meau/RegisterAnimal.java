@@ -199,13 +199,30 @@ public class RegisterAnimal extends AppCompatActivity {
         if (((CheckBox)findViewById(R.id.checkbox_saude_vacinado)).isChecked()) health.add("vacinado");
         String desease = ((EditText)findViewById(R.id.detalhes_doencas)).getText().toString().trim();
         String about = ((EditText)findViewById(R.id.compartilhe_historia)).getText().toString().trim();
-        boolean adoption_term = ((CheckBox)findViewById(R.id.checkbox_termo_adocao)).isChecked();
-        boolean pictures_of_house = ((CheckBox)findViewById(R.id.checkbox_fotos_casa_adocao)).isChecked();
-        boolean previous_visit = ((CheckBox)findViewById(R.id.checkbox_visita_previa_adocao)).isChecked();
-        boolean supervision_1month = ((CheckBox)findViewById(R.id.checkbox_acompanhamento_1_mes)).isChecked();
-        boolean supervision_3months = ((CheckBox)findViewById(R.id.checkbox_acompanhamento_3_meses)).isChecked();
-        boolean supervision_6months = ((CheckBox)findViewById(R.id.checkbox_acompanhamento_6_meses)).isChecked();
 
+//      Only if it is adoption
+        boolean adoption_term = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_termo_adocao)).isChecked() : false;
+        boolean pictures_of_house = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_fotos_casa_adocao)).isChecked() : false;
+        boolean previous_visit = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_visita_previa_adocao)).isChecked() : false;
+        boolean supervision_1month = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_acompanhamento_1_mes)).isChecked() : false;
+        boolean supervision_3months = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_acompanhamento_3_meses)).isChecked() : false;
+        boolean supervision_6months = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_acompanhamento_6_meses)).isChecked() : false;
+
+//      Only if it is help
+        boolean food_need = ((flagb1 && flagb3)||(flagb2 && flagb3))? ((CheckBox)findViewById(R.id.checkbox_alimento_ajudar)).isChecked() : false;
+        boolean finantial_need = ((flagb1 && flagb3)||(flagb2 && flagb3))? ((CheckBox)findViewById(R.id.checkbox_auxilio_financeiro_ajudar)).isChecked() : false;
+        boolean med_need = ((flagb1 && flagb3)||(flagb2 && flagb3))? ((CheckBox)findViewById(R.id.checkbox_medicamento_ajudar)).isChecked() : false;
+        String med_name_need = ((flagb1 && flagb3)||(flagb2 && flagb3))? ((EditText)findViewById(R.id.detalhes_medicamento)).getText().toString().trim() : "-";
+        boolean obj_need = ((flagb1 && flagb3)||(flagb2 && flagb3))? ((CheckBox)findViewById(R.id.objetos_ajudar)).isChecked() : false;
+        String obj_details_need = ((flagb1 && flagb3)||(flagb2 && flagb3))? ((EditText)findViewById(R.id.detalhes_objetos)).getText().toString().trim() : "-";
+
+//      Only if it is sponsorship
+        boolean sponsor_term = ((flagb2 && flagb3)||(flagb2))? ((CheckBox)findViewById(R.id.checkbox_termo_apadrinhamento)).isChecked() : false;
+        boolean finantial_sponsor = ((flagb2 && flagb3)||(flagb2))? ((CheckBox)findViewById(R.id.checkbox_auxilio_financeiro)).isChecked() : false;
+        boolean food_finantial_sponsor = ((flagb2 && flagb3)||(flagb2))? ((CheckBox)findViewById(R.id.checkbox_alimentacao)).isChecked() : false;
+        boolean health_finantial_sponsor = ((flagb2 && flagb3)||(flagb2))? ((CheckBox)findViewById(R.id.checkbox_saude_apadrinhamento)).isChecked() : false;
+        boolean obj_finantial_sponsor = ((flagb2 && flagb3)||(flagb2))? ((CheckBox)findViewById(R.id.checkbox_objetos_apadrinhamento)).isChecked() : false;
+        boolean visit_sponsor = ((flagb2 && flagb3)||(flagb2))? ((CheckBox)findViewById(R.id.checkbox_visita_animal_apadrinhamento)).isChecked() : false;
 
 
         //checking if the value is provided
@@ -240,6 +257,20 @@ public class RegisterAnimal extends AppCompatActivity {
                     supervision_1month,
                     supervision_3months,
                     supervision_6months,
+                    food_need,
+                    finantial_need,
+                    med_need,
+                    med_name_need,
+                    obj_need,
+                    obj_details_need,
+                    sponsor_term,
+                    finantial_sponsor,
+                    food_finantial_sponsor,
+                    health_finantial_sponsor,
+                    obj_finantial_sponsor,
+                    visit_sponsor,
+                    false,
+                    false,
                     type
             );
 

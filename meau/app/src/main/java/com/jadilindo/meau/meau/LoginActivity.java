@@ -3,6 +3,7 @@ package com.jadilindo.meau.meau;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -109,6 +110,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        View tool_bar = findViewById(R.id.maintoolbar);
+        if(tool_bar!=null) tool_bar.setVisibility(View.VISIBLE);
+
     }
 
     private void populateAutoComplete() {

@@ -1,5 +1,6 @@
 package com.jadilindo.meau.meau;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -18,6 +19,8 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -68,6 +71,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -131,6 +137,14 @@ public class MainActivity extends AppCompatActivity
                 field.setOnClickListener(loginListener);
             }
         }
+        View decorView = getWindow().getDecorView();
+        // Hide the status bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+        View tool_bar = findViewById(R.id.maintoolbar);
+        tool_bar.setVisibility(View.INVISIBLE);
+        ActionBar actionBar = getActionBar();
+        if(actionBar != null) actionBar.hide();
     }
 
 
@@ -177,6 +191,8 @@ public class MainActivity extends AppCompatActivity
         if(currentUser != null) {
 
         }
+        View tool_bar = findViewById(R.id.maintoolbar);
+        if(tool_bar!=null)tool_bar.setVisibility(View.VISIBLE);
 
         if (id == R.id.nav_perfil) {
             // Handle the camera action
@@ -333,6 +349,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void helpAnimal(View view){
+        
         FragmentManager fm = getFragmentManager();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Toast.makeText(this,"ajudar",Toast.LENGTH_SHORT).show();

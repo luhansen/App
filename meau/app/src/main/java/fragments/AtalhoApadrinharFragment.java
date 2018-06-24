@@ -2,12 +2,15 @@ package fragments;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +27,11 @@ import com.jadilindo.meau.meau.Animal;
 import com.jadilindo.meau.meau.MainActivity;
 import com.jadilindo.meau.meau.R;
 import com.jadilindo.meau.meau.User;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -70,6 +77,13 @@ public class AtalhoApadrinharFragment extends Fragment {
                                     if (animals == null) animals = new ArrayList<>();
                                     animal_counter++;
                                     animals.add(animal);
+
+                                    ImageView imageViewAnimal = new ImageView(getActivity());
+                                    Picasso.with(getActivity())
+                                            .load(animal.getPicture())
+                                            .noFade().into(imageViewAnimal);
+
+
                                     TextView name_text_view = new TextView(getActivity());
                                     name_text_view.setPadding(0, 40, 0, 0);
                                     name_text_view.setText("Nome do animal: " + animal.getName());
@@ -102,6 +116,7 @@ public class AtalhoApadrinharFragment extends Fragment {
                                     fav_button.setTag(animal.getId());
                                     fav_button.setOnClickListener(mOnClickListenerFav);
 
+                                    container_aux.addView(imageViewAnimal);
                                     container_aux.addView(name_text_view);
                                     container_aux.addView(age_text_view);
                                     container_aux.addView(gender_text_view);

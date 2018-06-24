@@ -3,7 +3,14 @@ package com.jadilindo.meau.meau;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,12 +20,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +40,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -49,6 +64,10 @@ public class RegisterAnimal extends AppCompatActivity {
     public String size;
     public String age;
     public Animal animal;
+    public Uri file;
+    FirebaseStorage storageRef;
+    UploadTask uploadTask;
+    public int RESULT_LOAD_IMAGE = 1;
     public DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference mDatabase;
     @Override
@@ -71,6 +90,104 @@ public class RegisterAnimal extends AppCompatActivity {
         fm.beginTransaction().replace(R.id.cadastrar_fragment, new CadastrarAdocaoFragment()).commit();
         buttonCadastro = (Button) findViewById(R.id.button_cadastrar_animal);
         buttonCadastro.setText("COLOCAR PARA ADOÇÃO");
+
+        Button buttonLoadImage = (Button) findViewById(R.id.adicionar_fotos_cadastro);
+        buttonLoadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                Intent i = new Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+
+        });
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(RegisterAnimal.this,
+                android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(RegisterAnimal.this,
+                    new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},
+                    1);
+        }
+
+
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        View tool_bar = findViewById(R.id.maintoolbar);
+        if(tool_bar!=null)tool_bar.setVisibility(View.VISIBLE);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            ImageView imageView = (ImageView) findViewById(R.id.foto_cadastro);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+            storageRef = FirebaseStorage.getInstance();
+            file = Uri.fromFile(new File(picturePath));
+            StorageReference riversRef = storageRef.getReference().child("images/"+file.getLastPathSegment());
+            uploadTask = riversRef.putFile(file);
+
+            // Register observers to listen for when the download is done or if it fails
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle unsuccessful uploads
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    final StorageReference ref = storageRef.getReference().child("images/"+file.getLastPathSegment());
+                    uploadTask = ref.putFile(file);
+
+                    Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
+                            }
+
+                            // Continue with the task to get the download URL
+                            return ref.getDownloadUrl();
+                        }
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                String url_path = task.getResult().toString();
+                                Button buttonLoadImage = findViewById(R.id.adicionar_fotos_cadastro);
+                                buttonLoadImage.setTag(url_path);
+                            }
+                        }
+                    });
+
+                }
+            });
+
+        }
+
 
     }
 
@@ -200,6 +317,7 @@ public class RegisterAnimal extends AppCompatActivity {
         if (((CheckBox)findViewById(R.id.checkbox_saude_vacinado)).isChecked()) health.add("vacinado");
         String desease = ((EditText)findViewById(R.id.detalhes_doencas)).getText().toString().trim();
         String about = ((EditText)findViewById(R.id.compartilhe_historia)).getText().toString().trim();
+        String picture = (String) (findViewById(R.id.adicionar_fotos_cadastro)).getTag();
 
 //      Only if it is adoption
         boolean adoption_term = ((flagb1 && flagb3)||(flagb1))? ((CheckBox)findViewById(R.id.checkbox_termo_adocao)).isChecked() : false;
@@ -231,6 +349,7 @@ public class RegisterAnimal extends AppCompatActivity {
             !TextUtils.isEmpty(species) &&
             !TextUtils.isEmpty(gender) &&
             !TextUtils.isEmpty(size) &&
+            !TextUtils.isEmpty(picture) &&
             !TextUtils.isEmpty(age)) {
             //creating an User Object
             String id = databaseUsers.push().getKey();
@@ -252,6 +371,7 @@ public class RegisterAnimal extends AppCompatActivity {
                     health,
                     desease,
                     about,
+                    picture,
                     adoption_term,
                     pictures_of_house,
                     previous_visit,
@@ -271,7 +391,10 @@ public class RegisterAnimal extends AppCompatActivity {
                     obj_finantial_sponsor,
                     visit_sponsor,
                     false,
+                    null,
                     false,
+                    false,
+                    null,
                     type
             );
 
@@ -290,6 +413,7 @@ public class RegisterAnimal extends AppCompatActivity {
                                 db_user.getRef().setValue(user);
                                 Toast.makeText(RegisterAnimal.this,
                                 "Animal Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                                goToMainActivity();
 
                             }
                         }

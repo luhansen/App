@@ -13,6 +13,7 @@ public class Animal {
     private ArrayList<String> health;
     private String desease;
     private String about;
+    private String picture;
     private boolean adoption_term;
     private boolean pictures_of_house;
     private boolean previous_visit;
@@ -38,61 +39,19 @@ public class Animal {
     private String userHelperEmail;
     private String action_type;
 
-    Animal(String id,String name, String species, String gender, String size, String age,
-           ArrayList<String> temper, ArrayList<String> health, String desease,
-           String about, boolean adoption_term, boolean pictures_of_house,
-           boolean previous_visit, boolean supervision_1month, boolean supervision_3months,
-           boolean supervision_6months, String action_type) {
-        this.id = id;
-        this.name = name;
-        this.species = species;
-        this.gender = gender;
-        this.size = size;
-        this.age = age;
-        this.temper = temper;
-        this.health = health;
-        this.desease = desease;
-        this.about = about;
-        this.adoption_term = adoption_term;
-        this.pictures_of_house = pictures_of_house;
-        this.previous_visit = previous_visit;
-        this.supervision_1month = supervision_1month;
-        this.supervision_3months = supervision_3months;
-        this.supervision_6months = supervision_6months;
-        this.action_type = action_type;
-    }
+
     public Animal() {}
 
-    public Animal(String id,
-                  String name,
-                  String species,
-                  String gender,
-                  String size,
-                  String age,
-                  ArrayList<String> temper,
-                  ArrayList<String> health,
-                  String desease,
-                  String about,
-                  boolean adoption_term,
-                  boolean pictures_of_house,
-                  boolean previous_visit,
-                  boolean supervision_1month,
-                  boolean supervision_3months,
-                  boolean supervision_6months,
-                  boolean food_need,
-                  boolean finantial_need,
-                  boolean med_need,
-                  String med_name_need,
-                  boolean obj_need,
-                  String obj_details_need,
-                  boolean sponsor_term,
-                  boolean finantial_sponsor,
-                  boolean food_finantial_sponsor,
-                  boolean health_finantial_sponsor,
-                  boolean obj_finantial_sponsor,
-                  boolean visit_sponsor,
-                  boolean adopted,
-                  boolean sponsored,
+    public Animal(String id, String name, String species, String gender, String size,
+                  String age, ArrayList<String> temper, ArrayList<String> health,
+                  String desease, String about, String picture, boolean adoption_term,
+                  boolean pictures_of_house, boolean previous_visit, boolean supervision_1month,
+                  boolean supervision_3months, boolean supervision_6months, boolean food_need,
+                  boolean finantial_need, boolean med_need, String med_name_need, boolean obj_need,
+                  String obj_details_need, boolean sponsor_term, boolean finantial_sponsor, boolean
+                          food_finantial_sponsor, boolean health_finantial_sponsor,
+                  boolean obj_finantial_sponsor, boolean visit_sponsor, boolean adopted,
+                  String targetUserEmail, boolean sponsored, boolean helped, String userHelperEmail,
                   String action_type) {
         this.id = id;
         this.name = name;
@@ -104,75 +63,7 @@ public class Animal {
         this.health = health;
         this.desease = desease;
         this.about = about;
-        this.adoption_term = adoption_term;
-        this.pictures_of_house = pictures_of_house;
-        this.previous_visit = previous_visit;
-        this.supervision_1month = supervision_1month;
-        this.supervision_3months = supervision_3months;
-        this.supervision_6months = supervision_6months;
-        this.food_need = food_need;
-        this.finantial_need = finantial_need;
-        this.med_need = med_need;
-        this.med_name_need = med_name_need;
-        this.obj_need = obj_need;
-        this.obj_details_need = obj_details_need;
-        this.sponsor_term = sponsor_term;
-        this.finantial_sponsor = finantial_sponsor;
-        this.food_finantial_sponsor = food_finantial_sponsor;
-        this.health_finantial_sponsor = health_finantial_sponsor;
-        this.obj_finantial_sponsor = obj_finantial_sponsor;
-        this.visit_sponsor = visit_sponsor;
-        this.adopted = adopted;
-        this.sponsored = sponsored;
-        this.action_type = action_type;
-    }
-
-    public Animal(String id, String name, String species, String gender, String size, String age, ArrayList<String> temper, ArrayList<String> health, String desease, String about, boolean adoption_term, boolean pictures_of_house, boolean previous_visit, boolean supervision_1month, boolean supervision_3months, boolean supervision_6months, boolean food_need, boolean finantial_need, boolean med_need, String med_name_need, boolean obj_need, String obj_details_need, boolean sponsor_term, boolean finantial_sponsor, boolean food_finantial_sponsor, boolean health_finantial_sponsor, boolean obj_finantial_sponsor, boolean visit_sponsor, boolean adopted, String targetUserEmail, boolean sponsored, String action_type) {
-        this.id = id;
-        this.name = name;
-        this.species = species;
-        this.gender = gender;
-        this.size = size;
-        this.age = age;
-        this.temper = temper;
-        this.health = health;
-        this.desease = desease;
-        this.about = about;
-        this.adoption_term = adoption_term;
-        this.pictures_of_house = pictures_of_house;
-        this.previous_visit = previous_visit;
-        this.supervision_1month = supervision_1month;
-        this.supervision_3months = supervision_3months;
-        this.supervision_6months = supervision_6months;
-        this.food_need = food_need;
-        this.finantial_need = finantial_need;
-        this.med_need = med_need;
-        this.med_name_need = med_name_need;
-        this.obj_need = obj_need;
-        this.obj_details_need = obj_details_need;
-        this.sponsor_term = sponsor_term;
-        this.finantial_sponsor = finantial_sponsor;
-        this.food_finantial_sponsor = food_finantial_sponsor;
-        this.health_finantial_sponsor = health_finantial_sponsor;
-        this.obj_finantial_sponsor = obj_finantial_sponsor;
-        this.visit_sponsor = visit_sponsor;
-        this.adopted = adopted;
-        this.targetUserEmail = targetUserEmail;
-        this.sponsored = sponsored;
-        this.action_type = action_type;
-    }
-
-    public Animal(String id, String name, String species, String gender, String size, String age, ArrayList<String> temper, ArrayList<String> health, String desease, String about, boolean adoption_term, boolean pictures_of_house, boolean previous_visit, boolean supervision_1month, boolean supervision_3months, boolean supervision_6months, boolean food_need, boolean finantial_need, boolean med_need, String med_name_need, boolean obj_need, String obj_details_need, boolean sponsor_term, boolean finantial_sponsor, boolean food_finantial_sponsor, boolean health_finantial_sponsor, boolean obj_finantial_sponsor, boolean visit_sponsor, boolean adopted, String targetUserEmail, boolean sponsored, boolean helped, String userHelperEmail, String action_type) {
-        this.id = id;
-        this.name = name;
-        this.species = species;
-        this.gender = gender;
-        this.size = size;
-        this.age = age;
-        this.temper = temper;
-        this.health = health;
-        this.desease = desease;
-        this.about = about;
+        this.picture = picture;
         this.adoption_term = adoption_term;
         this.pictures_of_house = pictures_of_house;
         this.previous_visit = previous_visit;
@@ -198,6 +89,7 @@ public class Animal {
         this.userHelperEmail = userHelperEmail;
         this.action_type = action_type;
     }
+
 
     public String getName() {
         return name;
@@ -469,5 +361,13 @@ public class Animal {
 
     public void setUserHelperEmail(String userHelperEmail) {
         this.userHelperEmail = userHelperEmail;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }

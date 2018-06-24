@@ -30,6 +30,15 @@ public class RegisterUser extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        View tool_bar = findViewById(R.id.maintoolbar);
+        if(tool_bar!=null) tool_bar.setVisibility(View.VISIBLE);
+
+    }
+
     public void addUser(View view) {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 

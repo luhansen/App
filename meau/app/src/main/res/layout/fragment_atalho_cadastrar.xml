@@ -83,6 +83,12 @@
                 android:textColor="@color/TextYellow"
                 android:textSize="12dp"/>
             
+            <ImageView
+                android:id="@+id/foto_cadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="imagem_animal" />
+
             <Button
                 android:id="@+id/adicionar_fotos_cadastro"
                 android:layout_width="312dp"

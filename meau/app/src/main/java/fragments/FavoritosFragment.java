@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.jadilindo.meau.meau.Animal;
 import com.jadilindo.meau.meau.R;
 import com.jadilindo.meau.meau.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -56,6 +58,11 @@ public class FavoritosFragment extends Fragment {
                             }else {
                                 for (Animal animal : user.getFavorites()) {
                                     if (animal == null) continue;
+                                    ImageView imageViewAnimal = new ImageView(getActivity());
+                                    Picasso.with(getActivity())
+                                            .load(animal.getPicture())
+                                            .noFade().into(imageViewAnimal);
+
                                     TextView name_text_view = new TextView(getActivity());
                                     name_text_view.setPadding(0, 40, 0, 0);
                                     name_text_view.setText("Nome do animal: " + animal.getName());
@@ -65,6 +72,7 @@ public class FavoritosFragment extends Fragment {
                                     gender_text_view.setText("Sexo do animal: " + animal.getGender());
                                     TextView size_text_view = new TextView(getActivity());
                                     size_text_view.setText("Tamanho do animal: " + animal.getSize());
+                                    container_aux.addView(imageViewAnimal);
                                     container_aux.addView(name_text_view);
                                     container_aux.addView(age_text_view);
                                     container_aux.addView(gender_text_view);

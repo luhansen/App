@@ -349,7 +349,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void helpAnimal(View view){
-        
+
         FragmentManager fm = getFragmentManager();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Toast.makeText(this,"ajudar",Toast.LENGTH_SHORT).show();

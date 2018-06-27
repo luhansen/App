@@ -2,12 +2,98 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <ScrollView android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_height="wrap_content"
         android:layout_width="match_parent">
         <LinearLayout
             android:id="@+id/container_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical"
+            android:paddingTop="176px">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nome"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColorGreenArt"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/perfil_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColor"
+                android:paddingBottom="36dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/idadeP"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColorGreenArt"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/idadeP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="36dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emailP"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColorGreenArt"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/emailP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="36dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/endereco"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColorGreenArt"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/endereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="36dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/telefone"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColorGreenArt"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/telefone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="36dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nome_usuario"
+                android:layout_gravity="center"
+                android:textColor="@color/TextColorGreenArt"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/nome_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="36dp"/>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/historico"/>-->
+        </LinearLayout>
     </ScrollView>
 </FrameLayout>

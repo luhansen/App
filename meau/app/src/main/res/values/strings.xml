@@ -111,5 +111,16 @@
     <string name="Saude">Saude</string>
     <string name="Alimentacao">Alimentação</string>
 
+    <!--string de perfil-->
+    <string name="nome">NOME COMPLETO</string>
+    <string name="idadeP">IDADE</string>
+    <string name="emailP">EMAIL</string>
+    <string name="localizacao">LOCALIZAÇÃO</string>
+    <string name="endereco">ENDEREÇO</string>
+    <string name="telefone">TELEFONE</string>
+    <string name="nome_usuario">NOME DE USUÁRIO</string>
+    <string name="historico">HISTÓRICO</string>
+
+
 
 </resources>

@@ -17,7 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.jadilindo.meau.meau.Animal;
 import com.jadilindo.meau.meau.R;
 import com.jadilindo.meau.meau.User;
 
@@ -33,7 +32,7 @@ public class PerfilFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         container_aux = rootView.findViewById(R.id.container_layout);
@@ -47,19 +46,32 @@ public class PerfilFragment extends Fragment{
                     for (DataSnapshot db_user : dataSnapshot.getChildren()) {
                         user = db_user.getValue(User.class);
                         if (user != null) {
-                            TextView name_text_view = new TextView(getActivity());
-                            name_text_view.setPadding(0,40,0,0);
-                            name_text_view.setText("User_name do Usuário: " + user.getUser_name());
-                            TextView age_text_view = new TextView(getActivity());
-                            age_text_view.setText("Name do Usuário: " + user.getName());
-                            TextView gender_text_view = new TextView(getActivity());
-                            gender_text_view.setText("Email do Usuário: " + user.getEmail());
-                            TextView size_text_view = new TextView(getActivity());
-                            size_text_view.setText("Telefone do Usuário: " + user.getPhone_number());
-                            container_aux.addView(name_text_view);
-                            container_aux.addView(age_text_view);
-                            container_aux.addView(gender_text_view);
-                            container_aux.addView(size_text_view);
+                            TextView textElement = (TextView) rootView.findViewById(R.id.nome_usuario);
+                            textElement.setText(user.getUser_name());
+                            textElement = (TextView) rootView.findViewById(R.id.perfil_name);
+                            textElement.setText(user.getName());
+                            textElement = (TextView) rootView.findViewById(R.id.emailP);
+                            textElement.setText(user.getEmail());
+                            textElement = (TextView) rootView.findViewById(R.id.telefone);
+                            textElement.setText(user.getPhone_number());
+                            textElement = (TextView) rootView.findViewById(R.id.endereco);
+                            textElement.setText(user.getAddress());
+                            textElement = (TextView) rootView.findViewById(R.id.idadeP);
+                            textElement.setText(user.getAge());
+
+//                            TextView name_text_view = new TextView(getActivity());
+//                            name_text_view.setPadding(0,40,0,0);
+//                            name_text_view.setText("Nome de usuário" + user.getUser_name());
+//                            TextView age_text_view = new TextView(getActivity());
+//                            age_text_view.setText("Name do Usuário: " + user.getName());
+//                            TextView gender_text_view = new TextView(getActivity());
+//                            gender_text_view.setText("Email do Usuário: " + user.getEmail());
+//                            TextView size_text_view = new TextView(getActivity());
+//                            size_text_view.setText("Telefone do Usuário: " + user.getPhone_number());
+//                            container_aux.addView(name_text_view);
+//                            container_aux.addView(age_text_view);
+//                            container_aux.addView(gender_text_view);
+//                            container_aux.addView(size_text_view);
                         }
                     }
                 }

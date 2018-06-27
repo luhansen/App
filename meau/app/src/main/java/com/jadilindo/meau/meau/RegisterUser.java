@@ -84,7 +84,8 @@ public class RegisterUser extends AppCompatActivity {
                                     null);
 
             //Saving the User
-            databaseUsers.child(id).setValue(user);
+            if (user_password.length() >=8)
+                databaseUsers.child(id).setValue(user);
             mAuth = FirebaseAuth.getInstance();
             mAuth.createUserWithEmailAndPassword(user_email, user_password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

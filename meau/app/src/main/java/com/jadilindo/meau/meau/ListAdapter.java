@@ -1,5 +1,7 @@
 package com.jadilindo.meau.meau;
 
+import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -85,8 +87,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         @Override
         public void onClick(View view) {
             Log.d("my", "Elemento " + getAdapterPosition() + " clicado.");
+            Bundle arg = new Bundle();
+            arg.putSerializable("MyData", animais.get(getAdapterPosition()));
             AppCompatActivity activity = (AppCompatActivity) view.getContext();
-            activity.getFragmentManager().beginTransaction().replace(R.id.ContentMainFrame, new PetsDadosFragment()).addToBackStack( "tag" ).commit();
+            Fragment myFragment = new PetsDadosFragment();
+            myFragment.setArguments(arg);
+            activity.getFragmentManager().beginTransaction().replace(R.id.ContentMainFrame, myFragment).addToBackStack( "tag" ).commit();
 //            FragmentManager fm = ((Activity) context).getFragmentManager();
 //            fm.beginTransaction().replace(R.id.ContentMainFrame, new PerfilFragment()).addToBackStack( "tag" ).commit();
         }

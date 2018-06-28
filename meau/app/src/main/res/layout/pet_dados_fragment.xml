@@ -34,6 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/detalhesSexo"
                 android:text="macho"/>
 
             </LinearLayout>
@@ -53,6 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/detalhesPorte"
                     android:text="macho"/>
 
             </LinearLayout>
@@ -72,7 +74,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="macho"/>
+                    android:text="macho"
+                    android:id="@+id/detalhesIdade"
+                    />
             </LinearLayout>
 
 
@@ -108,7 +112,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="macho"/>
+                    android:text="macho"
+                    android:id="@+id/detalhesCastrado"/>
 
             </LinearLayout>
 
@@ -127,7 +132,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="macho"/>
+                    android:text="macho"
+                    android:id="@+id/detalhesVermifugado"/>
 
             </LinearLayout>
 
@@ -153,7 +159,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="macho"/>
+                    android:text="macho"
+                    android:id="@+id/detalhesVacinado"/>
 
             </LinearLayout>
 
@@ -172,7 +179,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="macho"/>
+                    android:text="macho"
+                    android:id="@+id/detalhesDoencas"/>
 
             </LinearLayout>
 
@@ -191,7 +199,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Temperamento"/>
+            android:text="@string/Temperamento"
+            android:id="@+id/DetalhesTemperamento"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

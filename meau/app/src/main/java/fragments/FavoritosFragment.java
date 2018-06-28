@@ -3,6 +3,8 @@ package fragments;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +21,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.jadilindo.meau.meau.Animal;
+import com.jadilindo.meau.meau.ListAdapter;
 import com.jadilindo.meau.meau.R;
 import com.jadilindo.meau.meau.User;
 import com.squareup.picasso.Picasso;
+
+//import android.widget.ListAdapter;
 
 /**
  * Created by pedro on 09/05/18.
@@ -36,12 +41,21 @@ public class FavoritosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_favoritos, container, false);
+
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.listRecycleView);
+
+        ListAdapter listAdapter = new ListAdapter();
+        recyclerView.setAdapter(listAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         container_aux = rootView.findViewById(R.id.container_layout);
         //Saving the User
         Query queryRef = databaseUsers.orderByChild("email").equalTo(currentUser.getEmail());
         queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            public Animal[] animalString = new Animal[user.getFavorites().size()];
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -54,7 +68,10 @@ public class FavoritosFragment extends Fragment {
                                 warning.setText("Nenhum animal");
                                 container_aux.addView(warning);
                             }else {
+                                int i =0;
                                 for (Animal animal : user.getFavorites()) {
+//                                    animalString[i] = animal;
+
                                     ImageView imageElement = (ImageView) rootView.findViewById(R.id.image_pet);
                                     if (animal == null) continue;
 //                                    ImageView imageViewAnimal = new ImageView(getActivity());

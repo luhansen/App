@@ -1,6 +1,8 @@
 package com.jadilindo.meau.meau;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import fragments.PetsDadosFragment;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
     private ArrayList<Animal> animais;
@@ -42,7 +46,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         return animais.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textNome;
         private TextView textIdade;
         private TextView textSexo;
@@ -61,7 +65,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             textLoc = (TextView) itemView.findViewById(R.id.localizacao_pet);
 
 
-
+            itemView.setOnClickListener(this);
 
 //            TextView textNome = (TextView) rootView.findViewById(R.id.name_pet);
 //            textNome.setText(animal.getName());
@@ -77,5 +81,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
         }
 
+//        private Context context;
+        @Override
+        public void onClick(View view) {
+            Log.d("my", "Elemento " + getAdapterPosition() + " clicado.");
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            activity.getFragmentManager().beginTransaction().replace(R.id.ContentMainFrame, new PetsDadosFragment()).addToBackStack( "tag" ).commit();
+//            FragmentManager fm = ((Activity) context).getFragmentManager();
+//            fm.beginTransaction().replace(R.id.ContentMainFrame, new PerfilFragment()).addToBackStack( "tag" ).commit();
+        }
     }
 }

@@ -3,39 +3,47 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="184dp"
             android:id="@+id/pet_image_perfil"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/pet_name_perfil"
-            android:text="pet name"/>
+            android:text="pet name"
+            android:paddingVertical="16dp"/>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
             android:paddingRight="40dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sexo"
-                android:textColor="@color/TextYellow"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/detalhesSexo"
-                android:text="macho"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sexoDetalhes"
+                    android:textColor="@color/TextYellow"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detalhesSexo"
+                    android:text="macho"/>
 
             </LinearLayout>
 
@@ -43,13 +51,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="40dp">
+                android:layout_weight="1"
+                android:paddingRight="40dp"
+                android:gravity="center">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="porte"
+                    android:text="@string/porteDetalhes"
                     android:textColor="@color/TextYellow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -63,13 +73,15 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Idade"
+                    android:text="@string/idadeDetalhes"
                     android:textColor="@color/TextYellow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,31 +95,37 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Localizacao"
+            android:text="@string/localizacaoDetalhes"
             android:textColor="@color/TextYellow"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/endereco"/>
+            android:id="@+id/localizacaoDetalhes"
+            android:text=""
+            android:layout_marginBottom="28dp"/>
 
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="16dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="40dp">
+                android:paddingRight="40dp"
+                android:layout_weight="1"
+                android:gravity="center">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Castrado"
+                    android:text="@string/castradoDetalhes"
                     android:textColor="@color/TextYellow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -121,13 +139,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="40dp">
+                android:paddingRight="40dp"
+                android:layout_weight="1"
+                android:gravity="center">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Vermifugado"
+                    android:text="@string/vermifugadoDetalhes"
                     android:textColor="@color/TextYellow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -142,19 +162,23 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="28dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="40dp">
+                android:paddingRight="40dp"
+                android:layout_weight="1"
+                android:gravity="center">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Vacinado"
+                    android:text="@string/vacinadoDetalhes"
                     android:textColor="@color/TextYellow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -168,13 +192,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingRight="40dp">
+                android:paddingRight="40dp"
+                android:layout_weight="1"
+                android:gravity="center">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Doente"
+                    android:text="@string/doencaDetalhes"
                     android:textColor="@color/TextYellow"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -191,30 +217,38 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Temperamento"
+            android:text="@string/temperamentoDetalhes"
             android:textColor="@color/TextYellow"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Temperamento"
-            android:id="@+id/DetalhesTemperamento"/>
+            android:text=""
+            android:id="@+id/DetalhesTemperamento"
+            android:layout_marginBottom="28dp"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ExigenciasAdocao"
+            android:text="@string/exigenciasDetalhes"
             android:textColor="@color/TextYellow"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ExigenciasAdocao"
-            android:id="@+id/exigencias_Adocao_text"/>
+            android:text=""
+            android:id="@+id/exigencias_Adocao_text"
+            android:layout_marginBottom="28dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/maisDetalhes"
+            android:textColor="@color/TextYellow"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"/>
 
 
     </LinearLayout>

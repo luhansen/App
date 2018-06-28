@@ -122,5 +122,24 @@
     <string name="historico">HISTÓRICO</string>
 
 
+    <!--string de detalhes pet-->
+    <string name="sexoDetalhes">SEXO</string>
+    <string name="porteDetalhes">PORTE</string>
+    <string name="idadeDetalhes">IDADE</string>
+    <string name="localizacaoDetalhes">LOCALIZAÇÃO</string>
+    <string name="castradoDetalhes">CASTRADO</string>
+    <string name="vermifugadoDetalhes">VERMIFUGADO</string>
+    <string name="vacinadoDetalhes">VACINADO</string>
+    <string name="doencaDetalhes">DOENÇAS</string>
+    <string name="temperamentoDetalhes">TEMPERAMENTO</string>
+    <string name="exigenciasDetalhes">EXIGENCIAS DO DOADOR</string>
+    <string name="maisDetalhes">MAIS SOBRE</string>
+
+
+
+
+
+
+
 
 </resources>

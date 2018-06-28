@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,7 +23,8 @@ import com.jadilindo.meau.meau.Animal;
 import com.jadilindo.meau.meau.ListAdapter;
 import com.jadilindo.meau.meau.R;
 import com.jadilindo.meau.meau.User;
-import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 //import android.widget.ListAdapter;
 
@@ -43,8 +43,8 @@ public class FavoritosFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_favoritos, container, false);
 
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.listRecycleView);
-
-        ListAdapter listAdapter = new ListAdapter();
+        final ArrayList<Animal> animais = new ArrayList<>();
+        final ListAdapter listAdapter = new ListAdapter(animais);
         recyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -69,15 +69,19 @@ public class FavoritosFragment extends Fragment {
                                 container_aux.addView(warning);
                             }else {
                                 int i =0;
-                                for (Animal animal : user.getFavorites()) {
-//                                    animalString[i] = animal;
+                                animais.clear();
+                                animais.addAll(user.getFavorites());
 
-                                    ImageView imageElement = (ImageView) rootView.findViewById(R.id.image_pet);
-                                    if (animal == null) continue;
-//                                    ImageView imageViewAnimal = new ImageView(getActivity());
-                                    Picasso.with(getActivity())
-                                            .load(animal.getPicture())
-                                            .noFade().into(imageElement);
+                                listAdapter.notifyDataSetChanged();
+//                                for (Animal animal : user.getFavorites()) {
+////                                    animalString[i] = animal;
+//
+//                                    ImageView imageElement = (ImageView) rootView.findViewById(R.id.image_pet);
+//                                    if (animal == null) continue;
+////                                    ImageView imageViewAnimal = new ImageView(getActivity());
+//                                    Picasso.with(getActivity())
+//                                            .load(animal.getPicture())
+//                                            .noFade().into(imageElement);
 
 //                                    Bitmap myBitmap = BitmapFactory.decodeFile(animal.getPicture());
 //                                    File imgFile = new File(animal.getPicture());
@@ -86,16 +90,7 @@ public class FavoritosFragment extends Fragment {
 
 //                                    Picasso.with(getActivity()).loa
 
-                                    TextView textElement = (TextView) rootView.findViewById(R.id.name_pet);
-                                    textElement.setText(animal.getName());
-                                    textElement = (TextView) rootView.findViewById(R.id.idade_pet);
-                                    textElement.setText(animal.getAge());
-                                    textElement = (TextView) rootView.findViewById(R.id.sexo_pet);
-                                    textElement.setText(animal.getGender());
-                                    textElement = (TextView) rootView.findViewById(R.id.tamanho_pet);
-                                    textElement.setText(animal.getSize());
-                                    textElement = (TextView) rootView.findViewById(R.id.localizacao_pet);
-                                    textElement.setText("vazio");
+
 
 //                                    TextView name_text_view = new TextView(getActivity());
 //                                    name_text_view.setPadding(0, 40, 0, 0);
@@ -111,7 +106,7 @@ public class FavoritosFragment extends Fragment {
 //                                    container_aux.addView(age_text_view);
 //                                    container_aux.addView(gender_text_view);
 //                                    container_aux.addView(size_text_view);
-                                }
+//                                }
                             }
                         }
                     }

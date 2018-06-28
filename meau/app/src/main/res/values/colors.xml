@@ -27,6 +27,7 @@
 
     <color name="BackgroundColor">#fafafa</color>
     <color name="BackColorMenuDicasGreen">#cfe9e5</color>
+    <color name="BackColorMenuDicasYellow">#fee29b</color>
     <color name="SelectTextColorGreen">#589b9b</color>
     <color name="CardColorBack">#ffffff</color>
 

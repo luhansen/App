@@ -15,7 +15,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     private ArrayList<Animal> animais;
     public ListAdapter(ArrayList<Animal> animais){
         this.animais = animais;
-
     }
 
     @Override

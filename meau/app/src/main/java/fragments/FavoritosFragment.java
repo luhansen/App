@@ -73,40 +73,6 @@ public class FavoritosFragment extends Fragment {
                                 animais.addAll(user.getFavorites());
 
                                 listAdapter.notifyDataSetChanged();
-//                                for (Animal animal : user.getFavorites()) {
-////                                    animalString[i] = animal;
-//
-//                                    ImageView imageElement = (ImageView) rootView.findViewById(R.id.image_pet);
-//                                    if (animal == null) continue;
-////                                    ImageView imageViewAnimal = new ImageView(getActivity());
-//                                    Picasso.with(getActivity())
-//                                            .load(animal.getPicture())
-//                                            .noFade().into(imageElement);
-
-//                                    Bitmap myBitmap = BitmapFactory.decodeFile(animal.getPicture());
-//                                    File imgFile = new File(animal.getPicture());
-//                                    imageElement.set
-//                                    imageElement.setImageURI(Uri.fromFile(imgFile));
-
-//                                    Picasso.with(getActivity()).loa
-
-
-
-//                                    TextView name_text_view = new TextView(getActivity());
-//                                    name_text_view.setPadding(0, 40, 0, 0);
-//                                    name_text_view.setText("Nome do animal: " + animal.getName());
-//                                    TextView age_text_view = new TextView(getActivity());
-//                                    age_text_view.setText("Idade do animal: " + animal.getAge());
-//                                    TextView gender_text_view = new TextView(getActivity());
-//                                    gender_text_view.setText("Sexo do animal: " + animal.getGender());
-//                                    TextView size_text_view = new TextView(getActivity());
-//                                    size_text_view.setText("Tamanho do animal: " + animal.getSize());
-//                                    container_aux.addView(imageViewAnimal);
-//                                    container_aux.addView(name_text_view);
-//                                    container_aux.addView(age_text_view);
-//                                    container_aux.addView(gender_text_view);
-//                                    container_aux.addView(size_text_view);
-//                                }
                             }
                         }
                     }

@@ -121,8 +121,9 @@ public class PetsDadosFragment extends Fragment {
                 }
 
             }
+            temperamento = temperamento.substring(0, temperamento.length() - 2);
         }
-        temperamento = temperamento.substring(0, temperamento.length() - 2);
+
         textElement = (TextView) rootView.findViewById(R.id.DetalhesTemperamento);
         textElement.setText(temperamento);
 
@@ -135,8 +136,28 @@ public class PetsDadosFragment extends Fragment {
 
         }
         if(animal.isAdoption_term()){
-
+            exigencias += "termo de adocao, ";
         }
+        if (animal.isPictures_of_house()){
+            exigencias += "foto da casa, ";
+        }
+        if (animal.isVisit_sponsor()){
+            exigencias += "visita do sponsor, ";
+        }
+
+        if(animal.isFinantial_need()){
+            exigencias +="auxilio financeiro, ";
+        }
+        if(animal.isFood_need()){
+            exigencias += "comida, ";
+        }
+        if(animal.isMed_need()){
+            exigencias += "medicamentos, ";
+        }
+
+       
+        textElement.setText(exigencias);
+
         Button button = rootView.findViewById(R.id.buttonImportante);
         if (type == 1){
             button.setText("Pretendo adotar");

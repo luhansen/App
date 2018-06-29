@@ -1,6 +1,7 @@
 package fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -22,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.jadilindo.meau.meau.Animal;
+import com.jadilindo.meau.meau.MainActivity;
 import com.jadilindo.meau.meau.R;
 import com.jadilindo.meau.meau.User;
 import com.squareup.picasso.Picasso;
@@ -36,6 +38,8 @@ public class PetsDadosFragment extends Fragment {
     public DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference();
     public ArrayList<Animal> animals;
     public String sponsored_animal_id;
+    public String helped_animal_id;
+    public String adopted_animal_id;
     public FirebaseUser currentUser;
     Animal animal;
     public User user;
@@ -179,6 +183,44 @@ public class PetsDadosFragment extends Fragment {
                                     //listAdapter.notifyDataSetChanged();
                                     animal_counter++;
                                     animals.add(animal);
+
+                                    if (type == 1){
+//                                        adotar
+                                        View.OnClickListener mOnClickListener = new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(final View view) {
+                                                adopt_animal_for_current_user(view);
+                                            }
+                                        };
+
+                                        fav_button.setTag(animal.getId());
+                                        fav_button.setOnClickListener(mOnClickListener);
+                                    }
+                                    if (type == 3){
+//                                        ajudar
+                                        View.OnClickListener mOnClickListener = new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(final View view) {
+                                                help_animal_for_current_user(view);
+                                            }
+                                        };
+
+                                        fav_button.setTag(animal.getId());
+                                        fav_button.setOnClickListener(mOnClickListener);
+
+                                    }
+                                    if (type == 2){
+//                                        apadrinhar
+                                        View.OnClickListener mOnClickListener = new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(final View view) {
+                                                sponsor_animal_for_current_user(view);
+                                            }
+                                        };
+                                        fav_button.setTag(animal.getId());
+                                        fav_button.setOnClickListener(mOnClickListener);
+
+                                    }
 //
 //                                    ImageView imageViewAnimal = new ImageView(getActivity());
 //                                    Picasso.with(getActivity())
@@ -263,6 +305,263 @@ public class PetsDadosFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    private void adopt_animal_for_current_user(final View view) {
+        Query queryRef = databaseUsers.orderByChild("email").equalTo(currentUser.getEmail());
+        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot db_user : dataSnapshot.getChildren()) {
+                        User current_user = db_user.getValue(User.class);
+                        if (current_user != null) {
+                            String animal_id = (String) view.getTag();
+                            for (Animal animal : animals){
+                                if(animal.getId().equals(animal_id)){
+                                    if (current_user.owns == null) current_user.owns = new ArrayList<>();
+                                    current_user.owns.add(animal);
+                                    db_user.getRef().child("owns").setValue(current_user.getOwns());
+                                    adopted_animal_id = animal_id;
+                                    set_animal_as_adopted();
+                                    Toast.makeText(getActivity(),
+                                            "Animal Adotado com sucesso!", Toast.LENGTH_SHORT).show();
+                                    goToHome(view);                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void set_animal_as_adopted() {
+        Query queryRef = databaseUsers.orderByChild("email");
+        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User target_user;
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot db_user : dataSnapshot.getChildren()) {
+                        try{
+                            target_user = db_user.getValue(User.class);
+                        }catch (com.google.firebase.database.DatabaseException e){
+                            continue;
+                        }
+                        if (target_user != null) {
+                            if((target_user.getOwns() != null)&&(target_user.getOwns().size() != 0)){
+                                for (int i = 0; i < target_user.getOwns().size(); i++) {
+                                    Animal animal = target_user.getOwns().get(i);
+                                    if (animal.getId().equals(adopted_animal_id)) {
+                                        animal.setAdopted(true);
+                                        animal.setTargetUserEmail(currentUser.getEmail());
+                                        target_user.getOwns().set(i, animal);
+                                    }
+                                }
+                                db_user.getRef().setValue(target_user);
+                            }
+                            if((target_user.getFavorites() != null)&&(target_user.getFavorites().size() != 0)){
+                                for (int i = 0; i < target_user.getFavorites().size(); i++) {
+                                    Animal animal = target_user.getFavorites().get(i);
+                                    if (animal.getId().equals(adopted_animal_id)) {
+                                        animal.setAdopted(true);
+                                        animal.setTargetUserEmail(currentUser.getEmail());
+                                        target_user.getFavorites().set(i, animal);
+                                    }
+                                }
+                                db_user.getRef().setValue(target_user);
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //    ---------------------------- ajudar ------------------------------
+    private void help_animal_for_current_user(final View view) {
+        Query queryRef = databaseUsers.orderByChild("email").equalTo(currentUser.getEmail());
+        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot db_user : dataSnapshot.getChildren()) {
+                        User current_user = db_user.getValue(User.class);
+                        if (current_user != null) {
+                            String animal_id = (String) view.getTag();
+                            for (Animal animal : animals){
+                                if(animal.getId().equals(animal_id)){
+                                    if (current_user.helps == null) current_user.helps = new ArrayList<>();
+                                    current_user.helps.add(animal);
+                                    db_user.getRef().child("helps").setValue(current_user.getOwns());
+                                    helped_animal_id = animal_id;
+                                    set_animal_as_helped();
+                                    Toast.makeText(getActivity(),
+                                            "Animal Ajudado com sucesso!", Toast.LENGTH_SHORT).show();
+                                    goToHome(view);                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void set_animal_as_helped() {
+        Query queryRef = databaseUsers.orderByChild("email");
+        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User target_user;
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot db_user : dataSnapshot.getChildren()) {
+                        try{
+                            target_user = db_user.getValue(User.class);
+                        }catch (com.google.firebase.database.DatabaseException e){
+                            continue;
+                        }
+                        if (target_user != null) {
+                            if((target_user.getOwns() != null)&&(target_user.getOwns().size() != 0)){
+                                for (int i = 0; i < target_user.getOwns().size(); i++) {
+                                    Animal animal = target_user.getOwns().get(i);
+                                    if (animal.getId().equals(helped_animal_id)){
+                                        animal.setHelped(true);
+                                        animal.setUserHelperEmail(currentUser.getEmail());
+                                        target_user.getOwns().set(i, animal);
+                                    }
+                                }
+                                db_user.getRef().setValue(target_user);
+                            }
+                            if((target_user.getFavorites() != null)&&(target_user.getFavorites().size() != 0)){
+                                for (int i = 0; i < target_user.getFavorites().size(); i++) {
+                                    Animal animal = target_user.getFavorites().get(i);
+                                    if (animal.getId().equals(helped_animal_id)){
+                                        animal.setHelped(true);
+                                        animal.setUserHelperEmail(currentUser.getEmail());
+                                        target_user.getFavorites().set(i, animal);
+                                    }
+                                }
+                                db_user.getRef().setValue(target_user);
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+//    ------------------------------- apadrinhar--------------------------------
+
+    private void sponsor_animal_for_current_user(final View view) {
+        Query queryRef = databaseUsers.orderByChild("email").equalTo(currentUser.getEmail());
+        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot db_user : dataSnapshot.getChildren()) {
+                        User current_user = db_user.getValue(User.class);
+                        if (current_user != null) {
+                            String animal_id = (String) view.getTag();
+                            for (Animal animal : animals){
+                                if(animal.getId().equals(animal_id)){
+                                    if (current_user.sponsors == null) current_user.sponsors = new ArrayList<>();
+                                    current_user.sponsors.add(animal);
+                                    db_user.getRef().child("sponsors").setValue(current_user.getOwns());
+                                    sponsored_animal_id = animal_id;
+                                    set_animal_as_sponsored();
+                                    Toast.makeText(getActivity(),
+                                            "Animal Apadrinhado com sucesso!", Toast.LENGTH_SHORT).show();
+                                    goToHome(view);                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void goToHome (View view){
+        Intent intent = new Intent (getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void set_animal_as_sponsored() {
+        Query queryRef = databaseUsers.orderByChild("email");
+        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User target_user;
+                if (dataSnapshot.exists()) {
+                    // dataSnapshot is the "issue" node with all children with id 0
+                    for (DataSnapshot db_user : dataSnapshot.getChildren()) {
+                        try{
+                            target_user = db_user.getValue(User.class);
+                        }catch (com.google.firebase.database.DatabaseException e){
+                            continue;
+                        }
+                        if (target_user != null) {
+                            if((target_user.getOwns() != null)&&(target_user.getOwns().size() != 0)){
+                                for (int i = 0; i < target_user.getOwns().size(); i++) {
+                                    Animal animal = target_user.getOwns().get(i);
+                                    if (animal.getId().equals(sponsored_animal_id)) {
+                                        animal.setSponsored(true);
+                                        animal.setTargetUserEmail(currentUser.getEmail());
+                                        target_user.getOwns().set(i, animal);
+                                    }
+                                }
+                                db_user.getRef().setValue(target_user);
+                            }
+                            if((target_user.getFavorites() != null)&&(target_user.getFavorites().size() != 0)){
+                                for (int i = 0; i < target_user.getFavorites().size(); i++) {
+                                    Animal animal = target_user.getFavorites().get(i);
+                                    if (animal.getId().equals(sponsored_animal_id)){
+                                        animal.setSponsored(true);
+                                        animal.setTargetUserEmail(currentUser.getEmail());
+                                        target_user.getFavorites().set(i, animal);
+                                    }
+                                }
+                                db_user.getRef().setValue(target_user);
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 

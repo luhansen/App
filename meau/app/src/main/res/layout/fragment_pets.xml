@@ -4,10 +4,17 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
     <ScrollView android:layout_height="wrap_content"
         android:layout_width="match_parent">
-    <LinearLayout
-        android:id="@+id/container_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        <LinearLayout
+            android:id="@+id/container_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listRecycleViewMeusPets"/>
+
+        </LinearLayout>
     </ScrollView>
 </FrameLayout>

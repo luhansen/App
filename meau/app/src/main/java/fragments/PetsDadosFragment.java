@@ -37,11 +37,12 @@ public class PetsDadosFragment extends Fragment {
     public ArrayList<Animal> animals;
     public String sponsored_animal_id;
     public FirebaseUser currentUser;
+    Animal animal;
     public User user;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.pet_dados_fragment, container, false);
-        Animal animal = (Animal)getArguments().getSerializable("MyData");
+        animal = (Animal)getArguments().getSerializable("MyData");
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
@@ -73,47 +74,47 @@ public class PetsDadosFragment extends Fragment {
             textElement = (TextView) rootView.findViewById(R.id.detalhesDoencas);
             textElement.setText("Não");
 
-
-        for (String s :animal.getHealth()){
-            if (s.equals("vermifugado")){
-                textElement = (TextView) rootView.findViewById(R.id.detalhesVermifugado);
-                textElement.setText("Sim");
-            }
-            else if(s.equals("vacinado")){
-                textElement = (TextView) rootView.findViewById(R.id.detalhesVacinado);
-                textElement.setText("Sim");
-            }
-            else if(s.equals("castrado")){
-                textElement = (TextView) rootView.findViewById(R.id.detalhesCastrado);
-                textElement.setText("Sim");
-            }
-            else if(s.equals("doente")){
-                textElement = (TextView) rootView.findViewById(R.id.detalhesDoencas);
-                textElement.setText(animal.getDesease());
+        if (animal.getHealth() != null) {
+            for (String s : animal.getHealth()) {
+                if (s.equals("vermifugado")) {
+                    textElement = (TextView) rootView.findViewById(R.id.detalhesVermifugado);
+                    textElement.setText("Sim");
+                } else if (s.equals("vacinado")) {
+                    textElement = (TextView) rootView.findViewById(R.id.detalhesVacinado);
+                    textElement.setText("Sim");
+                } else if (s.equals("castrado")) {
+                    textElement = (TextView) rootView.findViewById(R.id.detalhesCastrado);
+                    textElement.setText("Sim");
+                } else if (s.equals("doente")) {
+                    textElement = (TextView) rootView.findViewById(R.id.detalhesDoencas);
+                    textElement.setText(animal.getDesease());
+                }
             }
         }
 
         String temperamento = "";
-        for(String s : animal.getTemper()){
-            if(s.equals("amoroso")){
-                temperamento += "amoroso, ";
-            }
-            if(s.equals("brincalhao")){
-                temperamento += "brincalhao, ";
-            }
-            if(s.equals("calmo")){
-                temperamento += "calmo, ";
-            }
-            if(s.equals("preguicoso")){
-                temperamento += "preguicoso, ";
-            }
-            if(s.equals("guarda")){
-                temperamento += "guarda, ";
-            }
-            if(s.equals("timido")){
-                temperamento += "timido, ";
-            }
+        if (animal.getTemper() != null) {
+            for (String s : animal.getTemper()) {
+                if (s.equals("amoroso")) {
+                    temperamento += "amoroso, ";
+                }
+                if (s.equals("brincalhao")) {
+                    temperamento += "brincalhao, ";
+                }
+                if (s.equals("calmo")) {
+                    temperamento += "calmo, ";
+                }
+                if (s.equals("preguicoso")) {
+                    temperamento += "preguicoso, ";
+                }
+                if (s.equals("guarda")) {
+                    temperamento += "guarda, ";
+                }
+                if (s.equals("timido")) {
+                    temperamento += "timido, ";
+                }
 
+            }
         }
         temperamento = temperamento.substring(0, temperamento.length() - 2);
         textElement = (TextView) rootView.findViewById(R.id.DetalhesTemperamento);
@@ -159,8 +160,8 @@ public class PetsDadosFragment extends Fragment {
                                     if (animals == null) animals = new ArrayList<>();
                                     //animais.add(animal);
                                     //listAdapter.notifyDataSetChanged();
-//                                    animal_counter++;
-//                                    animals.add(animal);
+                                    animal_counter++;
+                                    animals.add(animal);
 //
 //                                    ImageView imageViewAnimal = new ImageView(getActivity());
 //                                    Picasso.with(getActivity())
@@ -259,29 +260,24 @@ public class PetsDadosFragment extends Fragment {
                     for (DataSnapshot db_user : dataSnapshot.getChildren()) {
                         User current_user = db_user.getValue(User.class);
                         if (current_user != null) {
-                            String animal_id = (String) view.getTag();
-                            for (Animal animal : animals) {
-                                if (animal.getId().equals(animal_id)) {
-                                    boolean is_already_a_favorite = false;
-                                    if (current_user.favorites == null)
-                                        current_user.favorites = new ArrayList<>();
-                                    for (Animal favorite_animal : current_user.favorites) {
-                                        if (favorite_animal.getId().equals(animal_id)) {
-                                            is_already_a_favorite = true;
-                                        }
-                                    }
-                                    if (is_already_a_favorite) {
-                                        Toast.makeText(getActivity(),
-                                                "Animal Já é favorito!", Toast.LENGTH_SHORT).show();
-                                        continue;
-                                    }
-                                    current_user.favorites.add(animal);
-                                    db_user.getRef().child("favorites").setValue(current_user.getFavorites());
-                                    sponsored_animal_id = animal_id;
-                                    Toast.makeText(getActivity(),
-                                            "Animal Favoritado com sucesso!", Toast.LENGTH_SHORT).show();
+                            boolean is_already_a_favorite = false;
+                            if (current_user.favorites == null)
+                                current_user.favorites = new ArrayList<>();
+                            for (Animal favorite_animal : current_user.favorites) {
+                                if (favorite_animal.getId().equals(animal.getId())) {
+                                    is_already_a_favorite = true;
                                 }
                             }
+                            if (is_already_a_favorite) {
+                                Toast.makeText(getActivity(),
+                                        "Animal Já é favorito!", Toast.LENGTH_SHORT).show();
+                                continue;
+                            }
+                            current_user.favorites.add(animal);
+                            db_user.getRef().child("favorites").setValue(current_user.getFavorites());
+                            sponsored_animal_id = animal.getId();
+                            Toast.makeText(getActivity(),
+                                    "Animal Favoritado com sucesso!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

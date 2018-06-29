@@ -211,33 +211,39 @@ public class PetsDadosFragment extends Fragment {
                         if ((user!=null)&&(user.getEmail().equals(currentUser.getEmail()))) continue;
                         if (user != null) {
                             if((user.getOwns() != null)&&(user.getOwns().size() != 0)){
-                                for (Animal animal : user.getOwns()) {
+                                for (final Animal animal : user.getOwns()) {
                                     if (animal == null) continue;
-                                    if ((!animal.getAction_type().equals("para_apadrinhar"))&&(!animal.getAction_type().equals("para_apadrinhar_e_ajuda"))) continue;
+//                                    if ((!animal.getAction_type().equals("para_apadrinhar"))&&(!animal.getAction_type().equals("para_apadrinhar_e_ajuda"))) continue;
                                     if (animal.isSponsored()) continue;
                                     if (animals == null) animals = new ArrayList<>();
                                     //animais.add(animal);
                                     //listAdapter.notifyDataSetChanged();
                                     animal_counter++;
                                     animals.add(animal);
-                                    if (animal.getId() == animal1.getId()){
-                                        textLoc.setText(user.getAddress());
-                                    }
+                                    View.OnClickListener mOnClickListenerFav = new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(final View view) {
+                                            fav_animal_for_current_user(view);
+                                        }
+                                    };
+                                    fav_button.setOnClickListener(mOnClickListenerFav);
+
                                     if (type == 1){
 //                                        adotar
                                         View.OnClickListener mOnClickListener = new View.OnClickListener() {
                                             @Override
                                             public void onClick(final View view) {
                                                 adopt_animal_for_current_user(view);
+                                                buttonImportante.setTag(animal.getId());
+
                                             }
                                         };
 
-                                        buttonImportante.setTag(animal.getId());
                                         buttonImportante.setOnClickListener(mOnClickListener);
                                     }
                                     if (type == 3){
 //                                        ajudar
-                                        View.OnClickListener mOnClickListener = new View.OnClickListener() {
+                                        View.OnClickListener mOnClickListener3 = new View.OnClickListener() {
                                             @Override
                                             public void onClick(final View view) {
                                                 help_animal_for_current_user(view);
@@ -245,22 +251,22 @@ public class PetsDadosFragment extends Fragment {
                                         };
 
                                         buttonImportante.setTag(animal.getId());
-                                        buttonImportante.setOnClickListener(mOnClickListener);
+                                        buttonImportante.setOnClickListener(mOnClickListener3);
 
                                     }
                                     if (type == 2){
 //                                        apadrinhar
-                                        View.OnClickListener mOnClickListener = new View.OnClickListener() {
+                                        View.OnClickListener mOnClickListener2 = new View.OnClickListener() {
                                             @Override
                                             public void onClick(final View view) {
                                                 sponsor_animal_for_current_user(view);
                                             }
                                         };
                                         buttonImportante.setTag(animal.getId());
-                                        buttonImportante.setOnClickListener(mOnClickListener);
+                                        buttonImportante.setOnClickListener(mOnClickListener2);
 
                                     }
-//
+                                  textLoc.setText(user.getAddress());
 //                                    ImageView imageViewAnimal = new ImageView(getActivity());
 //                                    Picasso.with(getActivity())
 //                                            .load(animal.getPicture())
@@ -308,13 +314,7 @@ public class PetsDadosFragment extends Fragment {
 //                                    container_aux.addView(fav_button);
 
 
-                                        View.OnClickListener mOnClickListenerFav = new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(final View view) {
-                                                fav_animal_for_current_user(view);
-                                            }
-                                        };
-                                        fav_button.setOnClickListener(mOnClickListenerFav);
+
                                 }
                             }
                         }
@@ -357,7 +357,7 @@ public class PetsDadosFragment extends Fragment {
                     for (DataSnapshot db_user : dataSnapshot.getChildren()) {
                         User current_user = db_user.getValue(User.class);
                         if (current_user != null) {
-                            String animal_id = (String) view.getTag();
+                            String animal_id = (String) animal.getId();
                             for (Animal animal : animals){
                                 if(animal.getId().equals(animal_id)){
                                     if (current_user.owns == null) current_user.owns = new ArrayList<>();
@@ -441,12 +441,12 @@ public class PetsDadosFragment extends Fragment {
                     for (DataSnapshot db_user : dataSnapshot.getChildren()) {
                         User current_user = db_user.getValue(User.class);
                         if (current_user != null) {
-                            String animal_id = (String) view.getTag();
+                            String animal_id = (String) animal.getId();
                             for (Animal animal : animals){
                                 if(animal.getId().equals(animal_id)){
                                     if (current_user.helps == null) current_user.helps = new ArrayList<>();
                                     current_user.helps.add(animal);
-                                    db_user.getRef().child("helps").setValue(current_user.getOwns());
+                                    db_user.getRef().child("helps").setValue(current_user.getHelps());
                                     helped_animal_id = animal_id;
                                     set_animal_as_helped();
                                     Toast.makeText(getActivity(),
@@ -526,12 +526,12 @@ public class PetsDadosFragment extends Fragment {
                     for (DataSnapshot db_user : dataSnapshot.getChildren()) {
                         User current_user = db_user.getValue(User.class);
                         if (current_user != null) {
-                            String animal_id = (String) view.getTag();
-                            for (Animal animal : animals){
-                                if(animal.getId().equals(animal_id)){
+                            String animal_id = (String) animal.getId();
+                            for (Animal animal_target : animals){
+                                if(animal_target.getId().equals(animal_id)){
                                     if (current_user.sponsors == null) current_user.sponsors = new ArrayList<>();
-                                    current_user.sponsors.add(animal);
-                                    db_user.getRef().child("sponsors").setValue(current_user.getOwns());
+                                    current_user.sponsors.add(animal_target);
+                                    db_user.getRef().child("sponsors").setValue(current_user.getSponsors());
                                     sponsored_animal_id = animal_id;
                                     set_animal_as_sponsored();
                                     Toast.makeText(getActivity(),

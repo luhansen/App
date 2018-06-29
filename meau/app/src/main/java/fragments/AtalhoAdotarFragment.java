@@ -48,7 +48,7 @@ public class AtalhoAdotarFragment extends Fragment {
 
         RecyclerView recyclerView = rootView.findViewById(R.id.listRecycleViewAdotar);
         final ArrayList<Animal> animais = new ArrayList<>();
-        final ListAdapter listAdapter = new ListAdapter(animais);
+        final ListAdapter listAdapter = new ListAdapter(animais, 1);
         recyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

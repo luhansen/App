@@ -19,8 +19,10 @@ import fragments.PetsDadosFragment;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
     private ArrayList<Animal> animais;
-    public ListAdapter(ArrayList<Animal> animais){
+    private int type;
+    public ListAdapter(ArrayList<Animal> animais, int type){
         this.animais = animais;
+        this.type = type;
     }
 
     @Override
@@ -89,6 +91,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             Log.d("my", "Elemento " + getAdapterPosition() + " clicado.");
             Bundle arg = new Bundle();
             arg.putSerializable("MyData", animais.get(getAdapterPosition()));
+            arg.putInt("type", type);
             AppCompatActivity activity = (AppCompatActivity) view.getContext();
             Fragment myFragment = new PetsDadosFragment();
             myFragment.setArguments(arg);

@@ -271,7 +271,8 @@
                 android:background="@color/BackColorYellowButton"
                 android:layout_gravity="center"
                 android:text="@string/botaoDetalhes"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:id="@+id/buttonImportante"/>
 
         </LinearLayout>
     </ScrollView>

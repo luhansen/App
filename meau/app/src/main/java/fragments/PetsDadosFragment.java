@@ -39,10 +39,12 @@ public class PetsDadosFragment extends Fragment {
     public FirebaseUser currentUser;
     Animal animal;
     public User user;
+    int type;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.pet_dados_fragment, container, false);
         animal = (Animal)getArguments().getSerializable("MyData");
+        type = (int)getArguments().getInt("type");
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
@@ -131,6 +133,21 @@ public class PetsDadosFragment extends Fragment {
         if(animal.isAdoption_term()){
 
         }
+        Button button = rootView.findViewById(R.id.buttonImportante);
+        if (type == 1){
+            button.setText("Pretendo adotar");
+        }
+        if (type == 3){
+            button.setText("Pretendo ajudar");
+        }
+        if (type == 2){
+            button.setVisibility(View.VISIBLE);
+            button.setText("Pretendo apadrinhar");
+        }
+        if(type == 0){
+            button.setVisibility(View.GONE);
+        }
+
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //FirebaseAuth mAuth = FirebaseAuth.getInstance();

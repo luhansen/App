@@ -44,7 +44,7 @@ public class FavoritosFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.listRecycleView);
         final ArrayList<Animal> animais = new ArrayList<>();
-        final ListAdapter listAdapter = new ListAdapter(animais);
+        final ListAdapter listAdapter = new ListAdapter(animais, 0);
         recyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

@@ -47,7 +47,7 @@ public class AtalhoApadrinharFragment extends Fragment {
 
         RecyclerView recyclerView = rootView.findViewById(R.id.listRecycleViewApadrinhar);
         final ArrayList<Animal> animais = new ArrayList<>();
-        final ListAdapter listAdapter = new ListAdapter(animais);
+        final ListAdapter listAdapter = new ListAdapter(animais, 2);
         recyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

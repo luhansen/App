@@ -157,6 +157,9 @@ public class PetsDadosFragment extends Fragment {
         //FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         final ImageButton fav_button = (ImageButton) rootView.findViewById(R.id.imageButtonFav);
+        final Button buttonImportante = (Button) rootView.findViewById(R.id.buttonImportante);
+        final Animal animal1 = animal;
+        final TextView textLoc = (TextView) rootView.findViewById(R.id.localizacaoDetalhes);
         Query queryRef = databaseUsers.orderByChild("email");
         queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -183,7 +186,9 @@ public class PetsDadosFragment extends Fragment {
                                     //listAdapter.notifyDataSetChanged();
                                     animal_counter++;
                                     animals.add(animal);
-
+                                    if (animal.getId() == animal1.getId()){
+                                        textLoc.setText(user.getAddress());
+                                    }
                                     if (type == 1){
 //                                        adotar
                                         View.OnClickListener mOnClickListener = new View.OnClickListener() {
@@ -193,8 +198,8 @@ public class PetsDadosFragment extends Fragment {
                                             }
                                         };
 
-                                        fav_button.setTag(animal.getId());
-                                        fav_button.setOnClickListener(mOnClickListener);
+                                        buttonImportante.setTag(animal.getId());
+                                        buttonImportante.setOnClickListener(mOnClickListener);
                                     }
                                     if (type == 3){
 //                                        ajudar
@@ -205,8 +210,8 @@ public class PetsDadosFragment extends Fragment {
                                             }
                                         };
 
-                                        fav_button.setTag(animal.getId());
-                                        fav_button.setOnClickListener(mOnClickListener);
+                                        buttonImportante.setTag(animal.getId());
+                                        buttonImportante.setOnClickListener(mOnClickListener);
 
                                     }
                                     if (type == 2){
@@ -217,8 +222,8 @@ public class PetsDadosFragment extends Fragment {
                                                 sponsor_animal_for_current_user(view);
                                             }
                                         };
-                                        fav_button.setTag(animal.getId());
-                                        fav_button.setOnClickListener(mOnClickListener);
+                                        buttonImportante.setTag(animal.getId());
+                                        buttonImportante.setOnClickListener(mOnClickListener);
 
                                     }
 //

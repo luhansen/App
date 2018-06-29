@@ -1,6 +1,7 @@
 package com.jadilindo.meau.meau;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -61,6 +62,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
         public ListViewHolder(View itemView){
             super(itemView);
+            if(type != 0 ){
+                TextView header = (TextView) itemView.findViewById(R.id.name_pet);
+                if(header != null) {
+                    header.setBackgroundColor(Color.parseColor("#fee29b"));
+                }
+            }
             textNome = (TextView) itemView.findViewById(R.id.name_pet);
             imagePet = (ImageView) itemView.findViewById(R.id.image_pet);
             textIdade = (TextView) itemView.findViewById(R.id.idade_pet);

@@ -169,8 +169,21 @@ public class PetsDadosFragment extends Fragment {
             button.setVisibility(View.VISIBLE);
             button.setText("Pretendo apadrinhar");
         }
-        if(type == 0){
+        if(type == 0 || type == 4){
             button.setVisibility(View.GONE);
+        }
+        final ImageButton editButton = (ImageButton) rootView.findViewById(R.id.imageButtonFav);
+        editButton.getLayoutParams().width=80;
+        editButton.getLayoutParams().height=80;
+
+        if(type == 0){
+
+            Toast.makeText(getActivity(),
+                    "entrou", Toast.LENGTH_SHORT).show();
+            editButton.setBackgroundResource(R.drawable.pencil);
+        } else {
+            editButton.setBackgroundResource(R.drawable.like_favorite_heart_5759);
+
         }
 
 
@@ -294,13 +307,14 @@ public class PetsDadosFragment extends Fragment {
 //                                    container_aux.addView(sponsor_button);
 //                                    container_aux.addView(fav_button);
 
-                                    View.OnClickListener mOnClickListenerFav = new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(final View view) {
-                                            fav_animal_for_current_user(view);
-                                        }
-                                    };
-                                    fav_button.setOnClickListener(mOnClickListenerFav);
+
+                                        View.OnClickListener mOnClickListenerFav = new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(final View view) {
+                                                fav_animal_for_current_user(view);
+                                            }
+                                        };
+                                        fav_button.setOnClickListener(mOnClickListenerFav);
                                 }
                             }
                         }
